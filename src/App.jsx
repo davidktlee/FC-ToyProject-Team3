@@ -1,7 +1,12 @@
 import { useState } from 'react'
+import ProductList from './components/Product/ProductList'
 
 function App() {
-  return <div className="App">COunt</div>
+  return (
+    <div className="App">
+      <ProductList />
+    </div>
+  )
 }
 
 export default App
