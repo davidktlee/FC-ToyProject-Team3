@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import * as S from './ProductListStyle'
 import { BiSearchAlt } from 'react-icons/bi'
+import ProductItem from '../../../common/ProductItem/ProductItem'
 function ProductList() {
   const [optionValue, setOptionValue] = useState('')
   const [inputValue, setInputValue] = useState('')
@@ -29,6 +30,7 @@ function ProductList() {
           <BiSearchAlt />
         </S.SearchIcon>
       </S.SearchContainer>
+      <ProductItem />
     </S.Container>
   )
 }
