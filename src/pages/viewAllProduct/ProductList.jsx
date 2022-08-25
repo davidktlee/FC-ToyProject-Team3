@@ -14,11 +14,11 @@ function ProductList() {
   }
   const onSubmit = e => {
     e.preventDefault()
+    console.log(e)
   }
   return (
     <S.Container>
       <S.Title>상품 목록</S.Title>
-      <h2> H2 화면</h2>
       <S.SearchContainer onSubmit={onSubmit}>
         <S.Select defaultValue="검색 조건" onChange={changeOptionHandler}>
           <S.Option value="검색 조건" disabled>

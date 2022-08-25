@@ -17,6 +17,7 @@ export const SearchContainer = styled.form`
   justify-content: center;
   align-items: center;
   margin: 20px auto;
+  position: relative;
 `
 export const Select = styled.select`
   width: 100px;
@@ -31,7 +32,6 @@ export const Select = styled.select`
   z-index: 3;
 `
 export const Option = styled.option`
-  /* height: 35px; */
   color: #0096ff;
 `
 
@@ -49,14 +49,14 @@ export const Input = styled.input`
   } */
 `
 export const SearchIcon = styled.span`
+  position: absolute;
+  top: 1px;
+  right: 0;
   font-size: 25px;
-  margin-left: 8px;
+  margin-right: 5px;
   cursor: pointer;
-  box-sizing: border-box;
-  border: 1px solid white;
-  padding: 2px;
+  color: black;
   :hover {
-    border: 1px solid #0096ff;
-    border-radius: 5px;
+    color: #0096ff;
   }
 `
