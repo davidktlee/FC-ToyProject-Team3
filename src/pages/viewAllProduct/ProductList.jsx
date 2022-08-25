@@ -14,6 +14,7 @@ function ProductList() {
   }
   const onSubmit = e => {
     e.preventDefault()
+    console.log(e)
   }
   return (
     <S.Container>
