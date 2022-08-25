@@ -2,13 +2,14 @@ import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
   body {
-    width:425px;
+    width:100%;
     height:850px;
-    border: 1px solid;
     padding: 0;
     margin: 0;
     font-family: 'Wooridaum';
     font-size:16px;
+    display: flex;
+    justify-content: center;
   }
   h1 {
     font-size:30px;
@@ -19,5 +20,17 @@ const GlobalStyle = createGlobalStyle`
   button {
     
   }
+  #root {
+    width: 425px;
+    display: flex;
+    justify-content: center;
+    border: 1px solid black;
+  }
+  @media screen and (max-width: 768px) {
+    #root {
+    width: 100%;
+    }
+  }
 `
+
 export default GlobalStyle

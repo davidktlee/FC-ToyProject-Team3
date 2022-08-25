@@ -23,11 +23,13 @@ export const ManualContainer = styled.div`
   flex-grow: 1;
   align-items: center;
   line-height: 1.5;
+  margin-right: 50px;
 `
 export const Star = styled.span`
   font-size: 24px;
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 4px;
+  right: 14px;
   cursor: pointer;
+  color: #0096ff;
 `
