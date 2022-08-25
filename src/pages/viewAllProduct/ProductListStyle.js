@@ -6,12 +6,12 @@ export const Container = styled.div`
 `
 export const Title = styled.h1`
   text-align: center;
-  font-size: 24px;
-  font-weight: bold;
+  font-size: 30px;
+  /* font-weight: bold; */
   color: #0096ff;
 `
 export const SearchContainer = styled.form`
-  width: 350px;
+  width: 340px;
   height: 30px;
   display: flex;
   justify-content: center;
