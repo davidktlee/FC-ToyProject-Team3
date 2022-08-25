@@ -50,6 +50,7 @@ export const Input = styled.input`
 `
 export const SearchIcon = styled.span`
   position: absolute;
+  top: 1px;
   right: 0;
   font-size: 25px;
   margin-right: 5px;
