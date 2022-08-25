@@ -21,7 +21,7 @@ export const SearchContainer = styled.form`
 `
 export const Select = styled.select`
   width: 100px;
-  height: 35px;
+  height: 34px;
   background: transparent;
   border: 1px solid #0096ff;
   border-radius: 5px;
@@ -50,7 +50,7 @@ export const Input = styled.input`
 `
 export const SearchIcon = styled.span`
   position: absolute;
-  top: 1px;
+  top: 0.5px;
   right: 0;
   font-size: 25px;
   margin-right: 5px;
