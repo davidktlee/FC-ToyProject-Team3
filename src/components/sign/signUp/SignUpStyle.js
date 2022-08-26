@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import logo from '../../../../public/Logo.png'
 import backImg from '../../../../public/backImg.jpg'
 
 export const Container = styled.div`
@@ -7,15 +6,10 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
 `
-export const LogoImg = styled.img.attrs({
-  src: `${logo}`,
-})`
-  width: 200px;
-  height: 200px;
-`
 
 export const Title = styled.h1`
-  margin-top: 15%;
+  margin-top: 5%;
+  margin-bottom: 5%;
   text-align: center;
   font-size: 32px;
   font-weight: bold;
@@ -38,7 +32,6 @@ export const Name = styled.input.attrs({
   placeholder: '이름',
 })`
   width: 250px;
-  font-size: 22px;
   font-weight: bold;
 `
 
@@ -48,7 +41,6 @@ export const Email = styled.input.attrs({
 })`
   width: 250px;
   margin-top: 7%;
-  font-size: 22px;
   font-weight: bold;
 `
 
@@ -58,26 +50,24 @@ export const Password = styled.input.attrs({
 })`
   width: 250px;
   margin-top: 7%;
-  font-size: 22px;
   font-weight: bold;
 `
 export const Select = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  justify-content: space-between;
 `
 
 export const Age = styled.select`
   width: 100px;
-  height: 35px;
+  height: 28px;
   margin-top: 7%;
-  font-size: 24px;
   font-weight: bold;
 `
 export const Job = styled.select`
   width: 100px;
-  height: 35px;
+  height: 28px;
   margin-top: 7%;
-  font-size: 24px;
   font-weight: bold;
 `
