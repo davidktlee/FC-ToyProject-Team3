@@ -33,7 +33,11 @@ function SignUp() {
           </S.Job>
         </S.Select>
       </S.InputArea>
-      <Button variant="outline-primary">회원가입</Button>
+      <div class="d-grid gap-2 col-6 mx-auto">
+        <Button variant="outline-primary" size="lg">
+          회원가입
+        </Button>
+      </div>
     </S.Container>
   )
 }
