@@ -7,7 +7,7 @@ function SignUp() {
   return (
     <S.Container>
       <Header />
-      <S.Title>KFB-금융 대출 로그인</S.Title>
+      <S.Title>KFB-금융 대출 회원가입</S.Title>
       <S.InputArea>
         <S.Name />
         <S.Email />
