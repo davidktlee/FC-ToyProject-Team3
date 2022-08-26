@@ -7,7 +7,7 @@ function Signin() {
   return (
     <S.Container className="d-grid gap-2">
       <Header />
-      <S.Title>K-금융 대출 로그인</S.Title>
+      <S.Title>KFB-금융 대출 로그인</S.Title>
       <S.InputArea>
         <S.Email />
         <S.Password />
