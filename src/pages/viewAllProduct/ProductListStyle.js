@@ -21,7 +21,7 @@ export const SearchContainer = styled.form`
 `
 export const Select = styled.select`
   width: 100px;
-  height: 35px;
+  height: 34px;
   background: transparent;
   border: 1px solid #0096ff;
   border-radius: 5px;
@@ -50,9 +50,11 @@ export const Input = styled.input`
 `
 export const SearchIcon = styled.span`
   position: absolute;
-  top: 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   right: 0;
-  font-size: 25px;
+  font-size: 1.5rem;
   margin-right: 5px;
   cursor: pointer;
   color: black;
@@ -60,3 +62,11 @@ export const SearchIcon = styled.span`
     color: #0096ff;
   }
 `
+export const Sort = styled.select`
+  width: 100px;
+  height: 24px;
+  margin-left: 42px;
+  border-radius: 50px;
+  border: 1px solid #0096ff;
+`
+export const SortOption = styled.option``
