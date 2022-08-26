@@ -1,12 +1,13 @@
 import React from 'react'
 import * as S from './SigninStyle'
 import Button from 'react-bootstrap/Button'
+import Header from '../../../common/herder/Herder'
 
 function Signin() {
   return (
     <S.Container>
+      <Header />
       <S.Title>K-금융 대출 로그인</S.Title>
-      <S.LogoImg />
       <S.InputArea>
         <S.Email />
         <S.Password />
