@@ -1,19 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 import * as S from './SignUpStyle'
 import Button from 'react-bootstrap/Button'
-import Header from '../../../common/herder/Herder'
 
 function SignUp() {
+  const [userInput, setUserInput] = useState({ username: '', email: '', password: '', age: '', job: '' })
+
+  const userInputHandler = e => {
+    const { name, value } = e.target
+    setUserInput({ ...userInput, [name]: value })
+    console.log(e.target.value)
+  }
   return (
     <S.Container>
-      <Header />
       <S.Title>KFB-금융 대출 회원가입</S.Title>
       <S.InputArea>
-        <S.Name />
-        <S.Email />
-        <S.Password />
+        <S.Name name="username" onChange={userInputHandler} />
+        <S.Email name="email" onChange={userInputHandler} />
+        <S.Password name="password" onChange={userInputHandler} />
         <S.Select>
-          <S.Age>
+          <S.Age name="age" onChange={userInputHandler}>
             <option value="">나이</option>
             <option value="20">20대</option>
             <option value="30">30대</option>
@@ -23,7 +28,7 @@ function SignUp() {
             <option value="70">70대</option>
             <option value="80">80대</option>
           </S.Age>
-          <S.Job>
+          <S.Job name="job" onChange={userInputHandler}>
             <option value="">직업</option>
             <option value="공무원">공무원</option>
             <option value="직장인">직장인</option>
