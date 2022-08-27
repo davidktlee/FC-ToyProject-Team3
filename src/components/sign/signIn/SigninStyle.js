@@ -16,16 +16,17 @@ export const Title = styled.h1`
 
 export const InputArea = styled.div`
   width: 89%;
-  height: 40%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  height: 350px;
   background-image: url('${backImg2}');
   background-size: cover;
   border-radius: 10px;
   margin: 5%;
   padding: 25%;
   margin-bottom: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `
 
 export const Email = styled.input.attrs({
@@ -33,6 +34,7 @@ export const Email = styled.input.attrs({
   placeholder: '이메일',
 })`
   width: 250px;
+  margin-top: -5%;
   font-weight: bold;
 `
 
