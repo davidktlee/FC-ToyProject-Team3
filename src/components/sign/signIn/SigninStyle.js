@@ -15,7 +15,8 @@ export const Title = styled.h1`
 `
 
 export const InputArea = styled.div`
-  height: 85%;
+  width: 89%;
+  height: 40%;
   display: flex;
   flex-direction: column;
   align-items: center;
