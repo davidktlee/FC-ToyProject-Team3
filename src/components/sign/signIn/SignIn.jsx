@@ -5,7 +5,7 @@ import Header from '../../../common/herder/Herder'
 
 function Signin() {
   return (
-    <S.Container className="d-grid gap-2">
+    <S.Container>
       <Header />
       <S.Title>KFB-금융 대출 로그인</S.Title>
       <S.InputArea>
