@@ -17,16 +17,17 @@ export const Title = styled.h1`
 
 export const InputArea = styled.div`
   width: 89%;
-  height: 40%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  height: 350px;
   background-image: url('${backImg}');
   background-size: cover;
   border-radius: 10px;
   margin: 5%;
   padding: 15%;
   margin-bottom: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `
 
 export const Name = styled.input.attrs({
