@@ -7,6 +7,8 @@ function ViewCart() {
     <>
       <CartUser />
       <CartItem />
+      <CartItem />
+      <CartItem />
     </>
   )
 }
