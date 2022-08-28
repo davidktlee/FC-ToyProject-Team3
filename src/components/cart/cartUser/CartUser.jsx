@@ -5,7 +5,7 @@ function CartUser() {
   return (
     <>
       <S.CartUserInfo>
-        OOO 회원님의 장바구니
+        OOO 회원님의 <S.ColoredText>장바구니</S.ColoredText>
       </S.CartUserInfo>
     </>
   )
