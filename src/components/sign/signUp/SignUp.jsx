@@ -8,15 +8,33 @@ function SignUp() {
   const userInputHandler = e => {
     const { name, value } = e.target
     setUserInput({ ...userInput, [name]: value })
-    console.log(e.target.value)
   }
+
+  const nameExp = /^[가-힣]{2,4}$/
+  const emailExp = /^[a-z0-9\.\-_]+@([a-z0-9\-]+\.)+[a-z]{2,6}$/
+
   return (
     <S.Container>
       <S.Title>KFB-금융 대출 회원가입</S.Title>
       <S.InputArea>
         <S.Name name="username" onChange={userInputHandler} />
+        {userInput.username.trim() == '' || !nameExp.test(userInput.username) ? (
+          <S.ErrorMessage>이름을 입력 해주세요</S.ErrorMessage>
+        ) : (
+          <S.OkMessage>이름 입력 완료</S.OkMessage>
+        )}
         <S.Email name="email" onChange={userInputHandler} />
+        {userInput.email.trim() == '' || !emailExp.test(userInput.email) ? (
+          <S.ErrorMessage>이메일을 입력 해주세요</S.ErrorMessage>
+        ) : (
+          <S.OkMessage>이메일 입력 완료</S.OkMessage>
+        )}
         <S.Password name="password" onChange={userInputHandler} />
+        {userInput.password.trim() == '' || userInput.password.length < 8 ? (
+          <S.ErrorMessage>조건에 맞게 입력해주세요!</S.ErrorMessage>
+        ) : (
+          <S.OkMessage>비밀번호 입력 완료</S.OkMessage>
+        )}
         <S.Select>
           <S.Age name="age" onChange={userInputHandler}>
             <option value="">나이</option>
@@ -37,9 +55,21 @@ function SignUp() {
             <option value="주부·무직">주부·무직</option>
           </S.Job>
         </S.Select>
+        <S.SelectMessage>
+          {userInput.age.trim() == '' ? (
+            <S.ErrorMessage>나이를 선택해주세요!</S.ErrorMessage>
+          ) : (
+            <S.OkMessage>나이 선택 완료</S.OkMessage>
+          )}
+          {userInput.job.trim() == '' ? (
+            <S.ErrorMessage>직업을 선택해주세요!</S.ErrorMessage>
+          ) : (
+            <S.OkMessage>직업 선택 완료</S.OkMessage>
+          )}
+        </S.SelectMessage>
       </S.InputArea>
       <div class="d-grid gap-2 col-6 mx-auto">
-        <Button variant="outline-primary" size="lg">
+        <Button variant="outline-primary" size="lg" onClick={() => signUp(userInput)}>
           회원가입
         </Button>
       </div>
