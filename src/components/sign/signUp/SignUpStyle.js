@@ -30,6 +30,24 @@ export const InputArea = styled.div`
   justify-content: center;
 `
 
+export const ErrorMessage = styled.div`
+  font-size: 12px;
+  border-radius: 5px;
+  padding: 1%;
+  margin: 3%;
+  background-color: #f3f4fc;
+  color: #fe2e2e;
+`
+
+export const OkMessage = styled.div`
+  font-size: 12px;
+  border-radius: 5px;
+  padding: 1%;
+  margin: 3%;
+  background-color: #f3f4fc;
+  color: #04b630;
+`
+
 export const Name = styled.input.attrs({
   type: 'text',
   placeholder: '이름',
@@ -43,16 +61,15 @@ export const Email = styled.input.attrs({
   placeholder: '이메일',
 })`
   width: 250px;
-  margin-top: 7%;
   font-weight: bold;
 `
 
 export const Password = styled.input.attrs({
   type: 'password',
-  placeholder: '비밀번호',
+  placeholder: '비밀번호 (8~16자리)',
+  maxLength: '16',
 })`
   width: 250px;
-  margin-top: 7%;
   font-weight: bold;
 `
 export const Select = styled.div`
@@ -65,12 +82,16 @@ export const Select = styled.div`
 export const Age = styled.select`
   width: 100px;
   height: 28px;
-  margin-top: 7%;
   font-weight: bold;
 `
 export const Job = styled.select`
   width: 100px;
   height: 28px;
-  margin-top: 7%;
   font-weight: bold;
+`
+export const SelectMessage = styled.div`
+  width: 105%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 `
