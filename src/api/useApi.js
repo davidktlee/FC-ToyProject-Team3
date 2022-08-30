@@ -20,20 +20,7 @@ export const useApi = createApi({
         body: data,
       }),
     }),
-    likeProductList: builder.mutation({
-      query: () => ({
-        url:'/interests',
-        method: 'GET',
-      }),
-    }),
-    likeProductAdd: builder.mutation({
-      query: ({ data }, productId) => ({
-        url: `/interests/${productId}`,
-        method: 'POST',
-        body: data,
-      }),
-    }),
   }),
 })
 
-export const { useSignInMutation, useSignUpMutation, useLikeProductListMutation, useLikeProductAddMutation } = useApi
+export const { useSignInMutation, useSignUpMutation } = useApi
