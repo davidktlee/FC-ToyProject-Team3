@@ -13,14 +13,14 @@ function CartHeader() {
           <S.LoginTextContainer>
             <S.Login
               onClick={() => {
-                navigate('/signup')
+                navigate('/')
               }}
             >
               장바구니
             </S.Login>
             <S.Login
               onClick={() => {
-                navigate('/signin')
+                navigate('/')
               }}
             >
               로그아웃
