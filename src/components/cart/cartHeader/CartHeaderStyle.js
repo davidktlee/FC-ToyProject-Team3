@@ -1,12 +1,14 @@
 import styled from "styled-components";
 
-export const Container = styled.div `
+
+export const Herder = styled.div `
   width: 425px;
   height: 8vh;
   margin-bottom: 2em;
   border-bottom: 1px solid rgb(0, 0, 0, .5);
 `
-export const Inner = styled.div `
+
+export const Container = styled.div `
   width: 400px;
   height: 8vh;
   margin: 0 auto;
@@ -16,17 +18,34 @@ export const Inner = styled.div `
   justify-content: space-between;
   align-items: center;
 `
-export const Logo = styled.img `
-  width: 10%;
-  margin-left: 180px;
+
+export const Flex = styled.div `
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
 `
-export const CartBtn = styled.div `
-  width: 40px;
-  height: 40px;
-  border: 2px solid #0096FF;
-  border-radius: 20px;
-  background-image: url("/src/assets/cart.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 25px
+export const LoginTextContainer = styled.div`
+  height: 100%;
+  font-size: 16px;
+`
+
+export const Login = styled.a `
+  margin: 0 10px;
+  text-decoration: none;
+  color: #0096ff;
+  &:hover {
+    color: rgb(0, 0, 0, .8);
+    cursor: pointer;
+  }
+`
+
+export const Img = styled.img `
+  width: 10%;
+`
+
+
+export const test = styled.span`
+  margin-left: 3px;
+  font-size: 18px; 
 `

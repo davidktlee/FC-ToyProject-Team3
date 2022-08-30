@@ -9,8 +9,6 @@ function ViewCart() {
       <CartHeader />
       <CartUser />
       <CartItem />
-      <CartItem />
-      <CartItem />
     </>
   )
 }
