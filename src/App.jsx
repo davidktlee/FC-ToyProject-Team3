@@ -1,12 +1,13 @@
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import ViewCart from './pages/cart/ViewCart'
+import Router from './router/router';
+import { useEffect } from 'react';
 
 function App() {
   return (
-    <div className="App">
-      <ViewCart />
-    </div>
+    <>
+      <Router />
+    </>
   )
 }
 export default App
