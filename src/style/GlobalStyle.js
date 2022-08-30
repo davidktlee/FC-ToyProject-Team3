@@ -2,8 +2,8 @@ import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
   body {
-    width:100%;
-    height:850px;
+    width:100vw;
+    height:100vh;
     padding: 0;
     margin: 0;
     font-family: 'Wooridaum';
@@ -22,14 +22,8 @@ const GlobalStyle = createGlobalStyle`
   }
   #root {
     width: 425px;
-    display: flex;
-    justify-content: center;
+    height: 100%;
     border: 1px solid black;
-  }
-  @media screen and (max-width: 768px) {
-    #root {
-    width: 100%;
-    }
   }
 `
 
