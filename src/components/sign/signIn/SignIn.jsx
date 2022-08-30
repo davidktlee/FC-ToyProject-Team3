@@ -2,20 +2,30 @@ import React, { useState } from 'react'
 import * as S from './SigninStyle'
 import Button from 'react-bootstrap/Button'
 import { useSignInMutation } from '../../../api/useApi'
+import { useCookies } from 'react-cookie'
+import { useNavigate } from 'react-router-dom'
 
 function Signin() {
   const [userInput, setUserInput] = useState({ email: '', password: '' })
   const [signIn] = useSignInMutation()
+  const [cookies, setCookie, removeCookie] = useCookies()
+  const navigate = useNavigate()
 
   const inputChangeHandler = e => {
     const { name, value } = e.target
     setUserInput({ ...userInput, [name]: value })
   }
 
-  const submitSignIn = () => {
-    signIn({
-      data: userInput,
-    })
+  const submitSignIn = async () => {
+    try {
+      const response = await signIn({
+        data: userInput,
+      })
+      setCookie('accessToken', response.data['accessToken'], { path: '/' })
+      navigate('/')
+    } catch (e) {
+      console.log(e)
+    }
   }
   return (
     <S.Container>
