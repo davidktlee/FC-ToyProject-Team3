@@ -3,6 +3,7 @@ import * as S from './ProductListStyle'
 import { BiSearchAlt } from 'react-icons/bi'
 import ProductItem from '../../common/productItem/ProductItem'
 import { useEffect } from 'react'
+import { useGetProductsQuery } from '../../api/useApi'
 
 const productLists = [
   { name: '가', loan: 10000 },
@@ -12,7 +13,7 @@ const productLists = [
 ]
 function ProductList() {
   // 받아온 데이터
-  // const {data: productList, isLoading, isError} = useGetProductListQuery()
+  const { data: productList, isLoading, isError } = useGetProductsQuery()
   const [optionValue, setOptionValue] = useState('')
   const [sortOptionValue, setSortOptionValue] = useState('')
   const [inputValue, setInputValue] = useState('')
@@ -44,6 +45,7 @@ function ProductList() {
   const onSubmit = e => {
     e.preventDefault()
   }
+  console.log(productList)
   useEffect(() => {}, [])
   return (
     <S.Container>
