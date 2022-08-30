@@ -1,13 +1,16 @@
-import { useState } from 'react'
+import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import ViewCart from './pages/cart/ViewCart';
+import ProductList from './pages/viewAllProduct/ProductList'
+import LikeProduct from './components/likeProduct/LikeProduct';
 
 function App() {
   return (
     <div className="App">
-      <ViewCart />
+      <LikeProduct/>
     </div>
   )
 }
-
 export default App
+
+
+
