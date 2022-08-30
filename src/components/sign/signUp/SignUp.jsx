@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import * as S from './SignUpStyle'
 import Button from 'react-bootstrap/Button'
-import { useSignUpMutation } from '../../../api/signUpApi'
+import { useSignUpMutation } from '../../../api/useApi'
 
 function SignUp() {
-  const [userInput, setUserInput] = useState({ username: '', email: '', password: '', age: '', job: '' })
+  const [userInput, setUserInput] = useState({ username: '', email: '', password: '', age: 0, job: '' })
   const [signUp] = useSignUpMutation()
 
   const userInputHandler = e => {
@@ -24,7 +24,7 @@ function SignUp() {
     } else if (userInput.job == '') {
       alert('직업을 선택해주세요!')
     } else {
-      console.log(userInput)
+      userInput.age = parseInt(userInput.age)
       signUp({
         data: userInput,
       })

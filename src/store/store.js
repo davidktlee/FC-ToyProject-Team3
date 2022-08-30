@@ -1,12 +1,14 @@
-import { configureStore, combineReducers } from '@reduxjs/toolkit'
+import { configureStore } from '@reduxjs/toolkit'
+import { useApi } from '../api/useApi'
+import { setupListeners } from '@reduxjs/toolkit/query'
 
-const rootReducer = combineReducers({
-  // 이름 : 리듀서 이름,
-  // 이름 : 리듀서 이름
+export const store = configureStore({
+  reducer: {
+    [useApi.reducerPath]: useApi.reducer,
+  },
+  middleware: getDefaultMiddleware => getDefaultMiddleware().concat(useApi.middleware),
 })
 
-const store = configureStore({
-  reducer: rootReducer,
-})
+setupListeners(store.dispatch)
 
 export default store
