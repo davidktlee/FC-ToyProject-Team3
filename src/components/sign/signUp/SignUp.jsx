@@ -2,10 +2,12 @@ import React, { useState } from 'react'
 import * as S from './SignUpStyle'
 import Button from 'react-bootstrap/Button'
 import { useSignUpMutation } from '../../../api/useApi'
+import { useNavigate } from 'react-router-dom'
 
 function SignUp() {
   const [userInput, setUserInput] = useState({ username: '', email: '', password: '', age: 0, job: '' })
   const [signUp] = useSignUpMutation()
+  const navigate = useNavigate()
 
   const userInputHandler = e => {
     const { name, value } = e.target
@@ -24,19 +26,16 @@ function SignUp() {
     } else if (userInput.job == '') {
       alert('직업을 선택해주세요!')
     } else {
-      try {
-        userInput.age = parseInt(userInput.age)
-        await signUp({
-          data: userInput,
-        })
-      } catch (e) {
-        console.log(e)
+      userInput.age = parseInt(userInput.age)
+      const response = await signUp({
+        data: userInput,
+      })
+      if (response.data) {
+        alert('회원가입이 완료되었습니다!')
+        navigate('/signin')
+      } else {
+        alert('이미 존재하는 이메일입니다!')
       }
-      // if (!error.status) {
-      // alert('회원가입이 완료되었습니다!')
-      // } else {
-      // alert('이미 존재하는 이메일입니다!')
-      // }
     }
   }
 
