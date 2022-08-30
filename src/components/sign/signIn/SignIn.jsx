@@ -17,14 +17,20 @@ function Signin() {
   }
 
   const submitSignIn = async () => {
-    try {
+    if (userInput.email.trim() == '') {
+      alert('이메일을 입력해주세요')
+    } else if (userInput.password.trim() == '') {
+      alert('비밀번호를 입력해주세요')
+    } else {
       const response = await signIn({
         data: userInput,
       })
-      setCookie('accessToken', response.data['accessToken'], { path: '/' })
-      navigate('/')
-    } catch (e) {
-      console.log(e)
+      if (response.data) {
+        setCookie('accessToken', response.data['accessToken'], { path: '/' })
+        navigate('/')
+      } else {
+        alert('이메일 또는 비밀번호를 확인해주세요!')
+      }
     }
   }
   return (
