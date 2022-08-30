@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import * as S from './ProductListStyle'
+import * as S from './AllProductListStyle'
 import { BiSearchAlt } from 'react-icons/bi'
 import ProductItem from '../../common/productItem/ProductItem'
 import { useEffect } from 'react'
@@ -11,8 +11,8 @@ const productLists = [
   { name: '라', loan: 5000 },
   { name: '다', loan: 2220 },
 ]
-function ProductList() {
-  // 받아온 데이터
+
+function AllProductList() {
   const { data: productList, isLoading, isError } = useGetProductsQuery()
   const [optionValue, setOptionValue] = useState('')
   const [sortOptionValue, setSortOptionValue] = useState('')
@@ -84,4 +84,4 @@ function ProductList() {
   )
 }
 
-export default ProductList
+export default AllProductList
