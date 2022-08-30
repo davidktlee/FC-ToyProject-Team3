@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import logo from '../../../../public/Logo.png'
+import backImg2 from '../../../../public/backImg2.jpg'
 
 export const Container = styled.div`
   display: flex;
@@ -7,27 +7,26 @@ export const Container = styled.div`
   align-items: center;
 `
 export const Title = styled.h1`
-  margin-top: 15%;
+  margin-top: 3%;
+  margin-bottom: 5%;
   text-align: center;
   font-size: 32px;
   font-weight: bold;
 `
-export const LogoImg = styled.img.attrs({
-  src: `${logo}`,
-})`
-  width: 200px;
-  height: 200px;
-`
 
 export const InputArea = styled.div`
+  width: 89%;
+  height: 350px;
+  background-image: url('${backImg2}');
+  background-size: cover;
+  border-radius: 10px;
+  margin: 5%;
+  padding: 25%;
+  margin-bottom: 20%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #9dcaff;
-  border-radius: 10px;
-  margin: 5%;
-  padding: 10%;
-  margin-bottom: 20%;
+  justify-content: center;
 `
 
 export const Email = styled.input.attrs({
@@ -35,7 +34,7 @@ export const Email = styled.input.attrs({
   placeholder: '이메일',
 })`
   width: 250px;
-  font-size: 22px;
+  margin-top: -5%;
   font-weight: bold;
 `
 
@@ -44,7 +43,6 @@ export const Password = styled.input.attrs({
   placeholder: '비밀번호',
 })`
   width: 250px;
-  margin-top: 20%;
-  font-size: 22px;
+  margin-top: 25%;
   font-weight: bold;
 `
