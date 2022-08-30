@@ -5,7 +5,7 @@ export const Container = styled.div`
   height: 100px;
   display: flex;
   align-items: center;
-  margin: 10px auto;
+  margin: 18px auto;
   border: 1px solid #0096ff;
   border-radius: 10px;
   position: relative;
@@ -16,6 +16,12 @@ export const Logo = styled.div`
   border: 1px solid;
   border-radius: 50px;
   margin-left: 20px;
+`
+export const Img = styled.img`
+  object-fit: cover;
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
 `
 export const ManualContainer = styled.div`
   display: flex;

@@ -1,7 +1,7 @@
-import styled from "styled-components";
-
-export const Footer = styled.div `
-  background-color: #0096FF;
+import styled from 'styled-components'
+import { NavLink } from 'react-router-dom'
+export const Footer = styled.div`
+  background-color: #0096ff;
   width: 425px;
   height: 60px;
   position: fixed;
@@ -12,12 +12,14 @@ export const Footer = styled.div `
   font-weight: 600;
 `
 
-export const Anchor = styled.a `
+export const Anchor = styled(NavLink)`
   text-decoration: none;
-  color: rgb(255,255,255, .8);
+  color: rgb(255, 255, 255, 0.8);
   &:hover {
     color: #000;
     cursor: pointer;
   }
+  &.active {
+    color: #000;
+  }
 `
-

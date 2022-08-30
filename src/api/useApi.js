@@ -26,9 +26,10 @@ export const useApi = createApi({
     getUserProducts: builder.query({
       query: () => '/products/customization',
     }),
-    getSearchProducts: builder.query({
+    getSearchProducts: builder.mutation({
       query: ({ type, keyword }) => ({
         url: '/products/search',
+        method: 'POST',
         body: { type, keyword },
       }),
     }),
@@ -40,5 +41,5 @@ export const {
   useSignUpMutation,
   useGetProductsQuery,
   useGetUserProductsQuery,
-  useGetSearchProductsQuery,
+  useGetSearchProductsMutation,
 } = useApi

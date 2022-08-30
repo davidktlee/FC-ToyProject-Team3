@@ -3,7 +3,7 @@ import * as S from './AllProductListStyle'
 import { BiSearchAlt } from 'react-icons/bi'
 import ProductItem from '../../common/productItem/ProductItem'
 import { useEffect } from 'react'
-import { useGetProductsQuery } from '../../api/useApi'
+import { useGetProductsQuery, useGetSearchProductsMutation } from '../../api/useApi'
 
 const productLists = [
   { name: '가', loan: 10000 },
@@ -13,19 +13,30 @@ const productLists = [
 ]
 
 function AllProductList() {
-  const { data: productList, isLoading, isError } = useGetProductsQuery()
-  const [optionValue, setOptionValue] = useState('')
+  const { data: productLists, isLoading, isError } = useGetProductsQuery()
+  const { data: searchedProductLists } = useGetSearchProductsMutation()
+  const [getSearchProducts] = useGetSearchProductsMutation()
+
+  const [searchValue, setSearchValue] = useState({
+    type: '',
+    keyword: '',
+  })
   const [sortOptionValue, setSortOptionValue] = useState('')
-  const [inputValue, setInputValue] = useState('')
-  const [list, setList] = useState(productLists)
-  const changeOptionHandler = e => {
-    setOptionValue(e.target.value)
-    // dispatch 검색 조건을 포함한 함수
+  const [lists, setList] = useState(productLists)
+  const [optionError, setOptionError] = useState(false)
+
+  const changeValueHandler = e => {
+    const { name, value } = e.target
+    if (searchValue.type === '금액별') {
+      setSearchValue({ ...searchValue, [name]: Number(value) })
+    } else {
+      setSearchValue({ ...searchValue, [name]: value })
+    }
+    if (searchValue.option) {
+      setOptionError(false)
+    }
   }
-  const ChangeInputHandler = e => {
-    setInputValue(e.target.value)
-    // dispatch 검색 함수
-  }
+
   const changeSortOptionHandler = e => {
     const { value } = e.target
     if (value === '가나다순') {
@@ -44,25 +55,38 @@ function AllProductList() {
   }
   const onSubmit = e => {
     e.preventDefault()
+    if (!searchValue.type && searchValue.keyword) {
+      setOptionError(true)
+      return
+    } else {
+      setOptionError(false)
+    }
+
+    console.log(lists)
+    //dispatch 함수
+    getSearchProducts(searchValue)
   }
-  console.log(productList)
-  useEffect(() => {}, [])
+  if (productLists) {
+    console.log(productLists)
+  }
+  useEffect(() => {}, [lists])
   return (
     <S.Container>
       <S.Title>상품 목록</S.Title>
       <S.SearchContainer onSubmit={onSubmit}>
-        <S.Select defaultValue="검색 조건" onChange={changeOptionHandler}>
+        <S.Select defaultValue="검색 조건" name="type" onChange={changeValueHandler}>
           <S.Option value="검색 조건" disabled>
             검색 조건
           </S.Option>
-          <S.Option value="이름별">이름별</S.Option>
-          <S.Option value="기관별">기관별</S.Option>
+          <S.Option value="institution">기관별</S.Option>
+          <S.Option value="loan">금액별</S.Option>
         </S.Select>
-        <S.Input type="text" placeholder="검색" onChange={ChangeInputHandler} />
+        <S.Input name="keyword" type="text" placeholder="검색" onChange={changeValueHandler} />
         <S.SearchIcon onClick={onSubmit}>
           <BiSearchAlt />
         </S.SearchIcon>
       </S.SearchContainer>
+      {optionError && <S.ErrorText>검색 조건을 선택 해주세요</S.ErrorText>}
       <S.Sort defaultValue="정렬 방법" onChange={changeSortOptionHandler}>
         <S.SortOption value="정렬 방법" disabled>
           정렬
@@ -71,15 +95,14 @@ function AllProductList() {
         <S.SortOption value="적은금액순">적은 금액순</S.SortOption>
         <S.SortOption value="큰금액순">큰 금액순</S.SortOption>
       </S.Sort>
-      <div>
-        {list.map(item => (
-          <>
-            <div>{item.name}</div>
-            <div>{item.loan}</div>
-          </>
-        ))}
-      </div>
-      <ProductItem />
+      <S.ItemContainer>
+        {productLists &&
+          productLists.map(list => (
+            <div key={list.productId}>
+              <ProductItem name={list.name} loan={list.loan} logo={list.logo} />
+            </div>
+          ))}
+      </S.ItemContainer>
     </S.Container>
   )
 }
