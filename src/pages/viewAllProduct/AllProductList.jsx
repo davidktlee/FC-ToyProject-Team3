@@ -22,7 +22,7 @@ function AllProductList() {
     keyword: '',
   })
   const [sortOptionValue, setSortOptionValue] = useState('')
-  const [list, setList] = useState(productLists)
+  const [lists, setList] = useState(productLists)
   const [optionError, setOptionError] = useState(false)
 
   const changeValueHandler = e => {
@@ -62,12 +62,14 @@ function AllProductList() {
       setOptionError(false)
     }
 
-    console.log(searchValue)
+    console.log(lists)
     //dispatch 함수
     getSearchProducts(searchValue)
   }
-  console.log(searchedProductLists)
-
+  if (productLists) {
+    console.log(productLists)
+  }
+  useEffect(() => {}, [lists])
   return (
     <S.Container>
       <S.Title>상품 목록</S.Title>
@@ -93,16 +95,14 @@ function AllProductList() {
         <S.SortOption value="적은금액순">적은 금액순</S.SortOption>
         <S.SortOption value="큰금액순">큰 금액순</S.SortOption>
       </S.Sort>
-      <div>
-        {searchedProductLists &&
-          searchedProductLists.map(item => (
-            <>
-              <div>{item.name}</div>
-              <div>{item.loan}</div>
-            </>
+      <S.ItemContainer>
+        {productLists &&
+          productLists.map(list => (
+            <div key={list.productId}>
+              <ProductItem name={list.name} loan={list.loan} logo={list.logo} />
+            </div>
           ))}
-      </div>
-      <ProductItem />
+      </S.ItemContainer>
     </S.Container>
   )
 }

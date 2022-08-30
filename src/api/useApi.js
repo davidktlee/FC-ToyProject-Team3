@@ -29,8 +29,8 @@ export const useApi = createApi({
     getSearchProducts: builder.mutation({
       query: ({ type, keyword }) => ({
         url: '/products/search',
-        method: 'GET',
-        params: { type, keyword },
+        method: 'POST',
+        body: { type, keyword },
       }),
     }),
   }),

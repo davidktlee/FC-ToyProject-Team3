@@ -36,7 +36,7 @@ export const Option = styled.option`
 `
 
 export const Input = styled.input`
-  height: 30px;
+  height: 34px;
   border: 1px solid;
   border-radius: 5px;
   padding-left: 5px;
@@ -79,3 +79,9 @@ export const Sort = styled.select`
   border: 1px solid #0096ff;
 `
 export const SortOption = styled.option``
+
+export const ItemContainer = styled.div`
+  margin: 20px 0 0 16px;
+  height: 500px;
+  overflow-y: scroll;
+`
