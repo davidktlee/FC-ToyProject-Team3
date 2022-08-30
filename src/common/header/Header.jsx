@@ -10,7 +10,9 @@ function Header() {
     <S.Header>
       <S.Container>
         <S.Flex>
-          <S.Img src="https://cdn.sisamagazine.co.kr/news/photo/202109/401832_401982_133.png" alt="" />
+          <S.Img onClick={() => {
+            navigate('/')
+          }} src="https://cdn.sisamagazine.co.kr/news/photo/202109/401832_401982_133.png" alt="" />
           <S.LoginTextContainer>
             <S.Login
               onClick={() => {

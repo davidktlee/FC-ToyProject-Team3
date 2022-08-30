@@ -41,6 +41,7 @@ export const Login = styled.a `
 
 export const Img = styled.img `
   width: 10%;
+  cursor: pointer;
 `
 
 

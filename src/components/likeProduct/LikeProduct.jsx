@@ -1,7 +1,6 @@
-import React from 'react'
-import * as S from './LikeProductStyle'
-import ProductItem from '../../common/productItem/ProductItem'
-
+import React from 'react';
+import * as S from './LikeProductStyle';
+import ProductItem from '../../common/productItem/ProductItem';
 function LikeProduct() {
   return (
     <>
