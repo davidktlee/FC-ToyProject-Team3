@@ -1,14 +1,16 @@
-import { useState } from 'react'
+import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import ProductList from './pages/viewAllProduct/ProductList'
-import LikeProduct from './components/likeProduct/LikeProduct';
+import Router from './router/router';
+import { useEffect } from 'react';
 
 function App() {
   return (
-    <div className="App">
-      <LikeProduct/>
-    </div>
+    <>
+      <Router />
+    </>
   )
 }
-
 export default App
+
+
+

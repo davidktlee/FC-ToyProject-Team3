@@ -9,8 +9,8 @@ function Footer() {
   return (
     <S.Footer>
       <S.Anchor onClick={() => {navigate('/')}}>메인화면</S.Anchor>
-      <S.Anchor onClick={() => {navigate('/')}}>금융상품</S.Anchor>
-      <S.Anchor onClick={() => {navigate('/')}}>관심상품</S.Anchor>
+      <S.Anchor onClick={() => {navigate('/allproductlist')}}>금융상품</S.Anchor>
+      <S.Anchor onClick={() => {navigate('/likeproduct')}}>관심상품</S.Anchor>
     </S.Footer>
   )
 }

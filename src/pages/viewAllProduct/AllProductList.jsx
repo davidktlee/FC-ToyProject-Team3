@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import * as S from './ProductListStyle'
+import * as S from './AllProductListStyle'
 import { BiSearchAlt } from 'react-icons/bi'
-import ProductItem from '../../common/ProductItem/ProductItem'
+import ProductItem from '../../common/productItem/ProductItem'
 
-function ProductList() {
+function AllProductList() {
   const [optionValue, setOptionValue] = useState('')
   const [inputValue, setInputValue] = useState('')
   const changeOptionHandler = e => {
@@ -37,4 +37,4 @@ function ProductList() {
   )
 }
 
-export default ProductList
+export default AllProductList
