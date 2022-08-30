@@ -12,7 +12,7 @@ function SignUp() {
     setUserInput({ ...userInput, [name]: value })
   }
 
-  const submitSignUp = () => {
+  const submitSignUp = async () => {
     if (userInput.username.trim() == '' || !nameExp.test(userInput.username)) {
       alert('이름을 입력해주세요!')
     } else if (userInput.email.trim() == '' || !emailExp.test(userInput.email)) {
@@ -24,10 +24,19 @@ function SignUp() {
     } else if (userInput.job == '') {
       alert('직업을 선택해주세요!')
     } else {
-      userInput.age = parseInt(userInput.age)
-      signUp({
-        data: userInput,
-      })
+      try {
+        userInput.age = parseInt(userInput.age)
+        await signUp({
+          data: userInput,
+        })
+      } catch (e) {
+        console.log(e)
+      }
+      // if (!error.status) {
+      // alert('회원가입이 완료되었습니다!')
+      // } else {
+      // alert('이미 존재하는 이메일입니다!')
+      // }
     }
   }
 
@@ -73,7 +82,8 @@ function SignUp() {
             <option value="직장인">직장인</option>
             <option value="자영업">자영업</option>
             <option value="학생">학생</option>
-            <option value="주부·무직">주부·무직</option>
+            <option value="주부">주부</option>
+            <option value="무직">무직</option>
           </S.Job>
         </S.Select>
         <S.SelectMessage>
