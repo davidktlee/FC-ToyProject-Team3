@@ -16,6 +16,12 @@ function Signin() {
     setUserInput({ ...userInput, [name]: value })
   }
 
+  const onKeyPress = e => {
+    if (e.key == 'Enter') {
+      submitSignIn()
+    }
+  }
+
   const submitSignIn = async () => {
     if (userInput.email.trim() == '') {
       alert('이메일을 입력해주세요')
@@ -37,8 +43,8 @@ function Signin() {
     <S.Container>
       <S.Title>KFB-금융 대출 로그인</S.Title>
       <S.InputArea>
-        <S.Email name="email" onChange={inputChangeHandler} />
-        <S.Password name="password" onChange={inputChangeHandler} />
+        <S.Email name="email" onChange={inputChangeHandler} onKeyPress={onKeyPress} />
+        <S.Password name="password" onChange={inputChangeHandler} onKeyPress={onKeyPress} />
       </S.InputArea>
       <div class="d-grid gap-2 col-6 mx-auto">
         <Button variant="outline-primary" size="lg" onClick={submitSignIn}>
