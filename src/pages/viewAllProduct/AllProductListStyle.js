@@ -36,7 +36,7 @@ export const Option = styled.option`
 `
 
 export const Input = styled.input`
-  height: 30px;
+  height: 35px;
   border: 1px solid;
   border-radius: 5px;
   padding-left: 5px;
@@ -50,7 +50,7 @@ export const Input = styled.input`
 `
 export const SearchIcon = styled.span`
   position: absolute;
-  top: 1px;
+  top: -4px;
   right: 0;
   font-size: 25px;
   margin-right: 5px;

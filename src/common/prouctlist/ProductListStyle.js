@@ -29,3 +29,7 @@ export const ManualContainer = styled.div`
 export const Cart = styled.div`
   background-color: #0096ff;
 `
+
+export const InterestedItems = styled.div`
+  margin: 2px 50px 23px 20px;
+`
