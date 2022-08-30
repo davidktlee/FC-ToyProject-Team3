@@ -20,7 +20,26 @@ export const useApi = createApi({
         body: data,
       }),
     }),
+    getProducts: builder.query({
+      query: () => '/products',
+    }),
+    getUserProducts: builder.query({
+      query: () => '/products/customization',
+    }),
+    getSearchProducts: builder.mutation({
+      query: ({ type, keyword }) => ({
+        url: '/products/search',
+        method: 'POST',
+        body: { type, keyword },
+      }),
+    }),
   }),
 })
 
-export const { useSignInMutation, useSignUpMutation } = useApi
+export const {
+  useSignInMutation,
+  useSignUpMutation,
+  useGetProductsQuery,
+  useGetUserProductsQuery,
+  useGetSearchProductsMutation,
+} = useApi
