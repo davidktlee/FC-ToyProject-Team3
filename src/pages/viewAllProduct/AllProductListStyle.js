@@ -48,6 +48,14 @@ export const Input = styled.input`
     color: #0096ff;
   } */
 `
+export const ErrorText = styled.div`
+  color: #ff0000;
+  margin-left: 42px;
+  margin-top: -16px;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+`
+
 export const SearchIcon = styled.span`
   position: absolute;
   display: flex;
@@ -66,6 +74,7 @@ export const Sort = styled.select`
   width: 110px;
   height: 24px;
   margin-left: 42px;
+  padding-left: 4px;
   border-radius: 50px;
   border: 1px solid #0096ff;
 `
