@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom'
 import { BsMinecartLoaded, FiLogOut } from 'react-icons/all'
 
 function CartHeader() {
-
   const navigate = useNavigate()
 
   return (
@@ -19,10 +18,8 @@ function CartHeader() {
               <S.test>
                 <BsMinecartLoaded />
               </S.test>
-              
             </S.Login>
 
-            
             <S.Login onClick={() => {navigate('/')}}>
               로그아웃
               <S.test>
@@ -30,7 +27,6 @@ function CartHeader() {
               </S.test>
             </S.Login>
             
-
           </S.LoginTextContainer>
         </S.Flex>
       </S.Container>
