@@ -1,12 +1,11 @@
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import ProductList from './pages/viewAllProduct/ProductList'
-import LikeProduct from './components/likeProduct/LikeProduct';
+import ViewCart from './pages/cart/ViewCart'
 
 function App() {
   return (
     <div className="App">
-      <LikeProduct/>
+      <ViewCart />
     </div>
   )
 }
