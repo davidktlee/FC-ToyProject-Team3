@@ -63,7 +63,7 @@ export const SearchIcon = styled.span`
   }
 `
 export const Sort = styled.select`
-  width: 100px;
+  width: 110px;
   height: 24px;
   margin-left: 42px;
   border-radius: 50px;
