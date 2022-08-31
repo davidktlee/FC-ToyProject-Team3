@@ -5,15 +5,9 @@ import ProductItem from '../../common/productItem/ProductItem'
 import { useEffect } from 'react'
 import { useGetProductsQuery, useGetSearchProductsMutation } from '../../api/useApi'
 
-const productLists = [
-  { name: '가', loan: 10000 },
-  { name: '나', loan: 50000 },
-  { name: '라', loan: 5000 },
-  { name: '다', loan: 2220 },
-]
 
 function AllProductList() {
-  const { data: productLists, isLoading, isError } = useGetProductsQuery()
+  const { data: productLists } = useGetProductsQuery()
   const { data: searchedProductLists } = useGetSearchProductsMutation()
   const [getSearchProducts] = useGetSearchProductsMutation()
 
@@ -99,7 +93,7 @@ function AllProductList() {
         {productLists &&
           productLists.map(list => (
             <div key={list.productId}>
-              <ProductItem name={list.name} loan={list.loan} logo={list.logo} />
+              <ProductItem name={list.name} loan={list.loan} logo={list.logo} productId={list.productId} />
             </div>
           ))}
       </S.ItemContainer>
