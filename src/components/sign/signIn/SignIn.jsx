@@ -2,22 +2,20 @@ import React, { useState } from 'react'
 import * as S from './SigninStyle'
 import Button from 'react-bootstrap/Button'
 import { useSignInMutation } from '../../../api/useApi'
+import { useCookies } from 'react-cookie'
+import { useNavigate } from 'react-router-dom'
 
 function Signin() {
   const [userInput, setUserInput] = useState({ email: '', password: '' })
   const [signIn] = useSignInMutation()
+  const [cookies, setCookie, removeCookie] = useCookies()
+  const navigate = useNavigate()
 
   const inputChangeHandler = e => {
     const { name, value } = e.target
     setUserInput({ ...userInput, [name]: value })
   }
 
-<<<<<<< HEAD
-  const submitSignIn = () => {
-    signIn({
-      data: userInput,
-    })
-=======
   const onKeyPress = e => {
     if (e.key == 'Enter') {
       submitSignIn()
@@ -40,7 +38,6 @@ function Signin() {
         alert('이메일 또는 비밀번호를 확인해주세요!')
       }
     }
->>>>>>> ae75c39ac746088bce0b15884ecdff74916f39cb
   }
   return (
     <S.Container>
