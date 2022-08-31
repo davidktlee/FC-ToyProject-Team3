@@ -20,7 +20,51 @@ export const useApi = createApi({
         body: data,
       }),
     }),
+    getProducts: builder.query({
+      query: () => '/products',
+    }),
+    getUserProducts: builder.query({
+      query: () => '/products/customization',
+    }),
+    getSearchProducts: builder.mutation({
+      query: ({ type, keyword }) => ({
+        url: '/products/search',
+        method: 'POST',
+        body: { type, keyword },
+      }),
+    }),
+    WishList: builder.query({
+      query: () => ({
+        url: '/interests',
+        method: 'GET',
+        headers: {
+          Authorization : `Bearer ${accessToken}`,
+        }
+      })
+    }),
+    WishListAdd: builder.mutation({
+      query: ({data, productId}) => ({
+         url: `interests/${productId}`,
+         method: 'POST',
+         body: data,
+      }),
+    }),
+    WishListDelete: builder.mutation({
+      query: (productid) => ({ 
+        url: `interests/${productid}`,
+        method: 'DELETE',
+      })
+    }),
   }),
 })
 
-export const { useSignInMutation, useSignUpMutation } = useApi
+export const {
+  useSignInMutation,
+  useSignUpMutation,
+  useGetProductsQuery,
+  useGetUserProductsQuery,
+  useGetSearchProductsMutation,
+  useWishListQuery,
+  useWishListAddMutation,
+  useWishListDeleteMutation,
+} = useApi
