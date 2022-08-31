@@ -5,16 +5,13 @@ import ProductItem from '../../common/productItem/ProductItem'
 import { useEffect } from 'react'
 import { useGetProductsQuery, useGetSearchProductsMutation } from '../../api/useApi'
 
-const productLists = [
-  { name: '가', loan: 10000 },
-  { name: '나', loan: 50000 },
-  { name: '라', loan: 5000 },
-  { name: '다', loan: 2220 },
-]
-
 function AllProductList() {
-  const { data: productLists, isLoading, isError } = useGetProductsQuery()
-  const { data: searchedProductLists } = useGetSearchProductsMutation()
+  const { data: getProductLists, isLoading: getProductLoading, isError: getProductError } = useGetProductsQuery()
+  const {
+    data: searchedProductLists,
+    isLoading: getSearchProductLoading,
+    isError: getSearchProductError,
+  } = useGetSearchProductsMutation()
   const [getSearchProducts] = useGetSearchProductsMutation()
 
   const [searchValue, setSearchValue] = useState({
@@ -22,7 +19,8 @@ function AllProductList() {
     keyword: '',
   })
   const [sortOptionValue, setSortOptionValue] = useState('')
-  const [lists, setList] = useState(productLists)
+
+  const [gotProductLists, setGotProductLists] = useState(getProductLists)
   const [optionError, setOptionError] = useState(false)
 
   const changeValueHandler = e => {
@@ -39,18 +37,20 @@ function AllProductList() {
 
   const changeSortOptionHandler = e => {
     const { value } = e.target
-    if (value === '가나다순') {
-      let productList = [...productLists]
-      productList = productList.sort((a, b) => (a.name.toLowerCase() < b.name.toLowerCase() ? -1 : 1))
-      setList(productList)
-    } else if (value === '적은금액순') {
-      let productList = [...productLists]
-      productList = productList.sort((a, b) => a.loan - b.loan)
-      setList(productList)
-    } else if (value === '큰금액순') {
-      let productList = [...productLists]
-      productList = productList.sort((a, b) => b.loan - a.loan)
-      setList(productList)
+    if (gotProductLists) {
+      if (value === '가나다순') {
+        let productList = [...gotProductLists]
+        productList = productList.sort((a, b) => (a.name.toLowerCase() < b.name.toLowerCase() ? -1 : 1))
+        setGotProductLists(productList)
+      } else if (value === '적은금액순') {
+        let productList = [...gotProductLists]
+        productList = productList.sort((a, b) => a.loan - b.loan)
+        setGotProductLists(productList)
+      } else if (value === '큰금액순') {
+        let productList = [...gotProductLists]
+        productList = productList.sort((a, b) => b.loan - a.loan)
+        setGotProductLists(productList)
+      }
     }
   }
   const onSubmit = e => {
@@ -62,14 +62,21 @@ function AllProductList() {
       setOptionError(false)
     }
 
-    console.log(lists)
     //dispatch 함수
     getSearchProducts(searchValue)
   }
-  if (productLists) {
-    console.log(productLists)
-  }
-  useEffect(() => {}, [lists])
+  // if (getProductLists) {
+  //   console.log(getProductLists)
+  // } else if (searchedProductLists) {
+  //   console.log(searchedProductLists)
+  // }
+  // useEffect(() => {
+  //   if (getProductLists) {
+  //     setGotProductLists(getProductLists)
+  //   } else if (searchedProductLists) {
+  //     setGotProductLists(searchedProductLists)
+  //   }
+  // }, [getProductLists, searchedProductLists])
   return (
     <S.Container>
       <S.Title>상품 목록</S.Title>
@@ -96,12 +103,20 @@ function AllProductList() {
         <S.SortOption value="큰금액순">큰 금액순</S.SortOption>
       </S.Sort>
       <S.ItemContainer>
-        {productLists &&
-          productLists.map(list => (
-            <div key={list.productId}>
-              <ProductItem name={list.name} loan={list.loan} logo={list.logo} />
-            </div>
-          ))}
+        {getProductLoading || getSearchProductLoading ? <p>isLoading...</p> : null}
+        {gotProductLists
+          ? gotProductLists.map(list => (
+              <div key={list.productId}>
+                <ProductItem name={list.name} loan={list.loan} logo={list.logo} />
+              </div>
+            ))
+          : searchedProductLists
+          ? searchedProductLists.map(list => (
+              <div key={list.productId}>
+                <ProductItem name={list.name} loan={list.loan} logo={list.logo} />
+              </div>
+            ))
+          : null}
       </S.ItemContainer>
     </S.Container>
   )

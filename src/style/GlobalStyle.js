@@ -3,7 +3,7 @@ import { createGlobalStyle } from 'styled-components'
 const GlobalStyle = createGlobalStyle`
   body {
     width:100vw;
-    height:825px;
+    height:100vh;
     padding: 0;
     margin: 0;
     font-family: 'Wooridaum';
