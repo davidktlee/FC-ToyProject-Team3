@@ -82,6 +82,7 @@ export const SortOption = styled.option``
 
 export const ItemContainer = styled.div`
   margin: 20px 0 0 16px;
-  height: 500px;
+  height: 400px;
   overflow-y: scroll;
+  text-align: center;
 `
