@@ -2,10 +2,10 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   width: 340px;
-  height: 100px;
+  height: 120px;
   display: flex;
   align-items: center;
-  margin: 10px auto;
+  margin: 18px auto;
   border: 1px solid #0096ff;
   border-radius: 10px;
   position: relative;
@@ -17,6 +17,12 @@ export const Logo = styled.div`
   border-radius: 50px;
   margin-left: 20px;
 `
+export const Img = styled.img`
+  object-fit: cover;
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+`
 export const ManualContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -26,6 +32,3 @@ export const ManualContainer = styled.div`
   margin-right: 50px;
 `
 
-export const Cart = styled.div`
-  background-color: #0096ff;
-`

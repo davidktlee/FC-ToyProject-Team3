@@ -21,7 +21,7 @@ export const SearchContainer = styled.form`
 `
 export const Select = styled.select`
   width: 100px;
-  height: 35px;
+  height: 34px;
   background: transparent;
   border: 1px solid #0096ff;
   border-radius: 5px;
@@ -36,7 +36,7 @@ export const Option = styled.option`
 `
 
 export const Input = styled.input`
-  height: 30px;
+  height: 34px;
   border: 1px solid;
   border-radius: 5px;
   padding-left: 5px;
@@ -48,15 +48,41 @@ export const Input = styled.input`
     color: #0096ff;
   } */
 `
+export const ErrorText = styled.div`
+  color: #ff0000;
+  margin-left: 42px;
+  margin-top: -16px;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+`
+
 export const SearchIcon = styled.span`
   position: absolute;
-  top: 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   right: 0;
-  font-size: 25px;
+  font-size: 1.5rem;
   margin-right: 5px;
   cursor: pointer;
   color: black;
   :hover {
     color: #0096ff;
   }
+`
+export const Sort = styled.select`
+  width: 110px;
+  height: 24px;
+  margin-left: 42px;
+  padding-left: 4px;
+  border-radius: 50px;
+  border: 1px solid #0096ff;
+`
+export const SortOption = styled.option``
+
+export const ItemContainer = styled.div`
+  margin: 20px 0 0 16px;
+  height: 400px;
+  overflow-y: scroll;
+  text-align: center;
 `

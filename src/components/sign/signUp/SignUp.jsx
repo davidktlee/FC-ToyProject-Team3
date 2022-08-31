@@ -2,17 +2,19 @@ import React, { useState } from 'react'
 import * as S from './SignUpStyle'
 import Button from 'react-bootstrap/Button'
 import { useSignUpMutation } from '../../../api/useApi'
+import { useNavigate } from 'react-router-dom'
 
 function SignUp() {
   const [userInput, setUserInput] = useState({ username: '', email: '', password: '', age: 0, job: '' })
   const [signUp] = useSignUpMutation()
+  const navigate = useNavigate()
 
   const userInputHandler = e => {
     const { name, value } = e.target
     setUserInput({ ...userInput, [name]: value })
   }
 
-  const submitSignUp = () => {
+  const submitSignUp = async () => {
     if (userInput.username.trim() == '' || !nameExp.test(userInput.username)) {
       alert('이름을 입력해주세요!')
     } else if (userInput.email.trim() == '' || !emailExp.test(userInput.email)) {
@@ -25,9 +27,15 @@ function SignUp() {
       alert('직업을 선택해주세요!')
     } else {
       userInput.age = parseInt(userInput.age)
-      signUp({
+      const response = await signUp({
         data: userInput,
       })
+      if (response.data) {
+        alert('회원가입이 완료되었습니다!')
+        navigate('/signin')
+      } else {
+        alert('이미 존재하는 이메일입니다!')
+      }
     }
   }
 
@@ -73,7 +81,8 @@ function SignUp() {
             <option value="직장인">직장인</option>
             <option value="자영업">자영업</option>
             <option value="학생">학생</option>
-            <option value="주부·무직">주부·무직</option>
+            <option value="주부">주부</option>
+            <option value="무직">무직</option>
           </S.Job>
         </S.Select>
         <S.SelectMessage>
