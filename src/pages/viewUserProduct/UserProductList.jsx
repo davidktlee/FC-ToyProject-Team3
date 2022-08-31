@@ -6,10 +6,12 @@ import { useEffect } from 'react'
 import { useGetProductsQuery, useGetSearchProductsMutation, useGetUserProductsQuery } from '../../api/useApi'
 import { useCookies } from 'react-cookie'
 import Loader from '../../common/loader/Loader'
+import { useNavigate } from 'react-router'
 
 function AllProductList() {
   const [cookies] = useCookies()
   const token = cookies.accessToken
+
   const {
     data: getProductLists,
     isLoading: getProductLoading,
@@ -23,7 +25,7 @@ function AllProductList() {
     token,
   })
   const [sortOptionValue, setSortOptionValue] = useState('')
-  const [gotProductLists, setGotProductLists] = useState(getProductLists)
+  const [gotProductLists, setGotProductLists] = useState()
   const [optionError, setOptionError] = useState(false)
 
   const changeValueHandler = e => {
@@ -100,13 +102,15 @@ function AllProductList() {
       </S.Sort>
       <S.ItemContainer>
         {getProductLoading ? <Loader /> : null}
-        {gotProductLists
-          ? gotProductLists.map(list => (
-              <div key={list.productId}>
-                <ProductItem name={list.name} loan={list.loan} logo={list.logo} />
-              </div>
-            ))
-          : null}
+        {!token ? (
+          <div>로그인 후 이용 해 주세요!</div>
+        ) : gotProductLists ? (
+          gotProductLists.map(list => (
+            <div key={list.productId}>
+              <ProductItem name={list.name} loan={list.loan} logo={list.logo} />
+            </div>
+          ))
+        ) : null}
         {/* // : searchedProductLists // ? searchedProductLists.map(list => ( //{' '}
         <div key={list.productId}>
           // <ProductItem name={list.name} loan={list.loan} logo={list.logo} />
