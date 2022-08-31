@@ -8,7 +8,7 @@ function Footer() {
   return (
     <S.Footer>
       <S.Anchor to="/">메인화면</S.Anchor>
-      <S.Anchor to="/allproductlist">금융상품</S.Anchor>
+      <S.Anchor to="/allproductlist">맞춤상품</S.Anchor>
       <S.Anchor to="/likeproduct">관심상품</S.Anchor>
     </S.Footer>
   )
