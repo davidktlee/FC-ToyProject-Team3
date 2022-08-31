@@ -31,18 +31,4 @@ export const ManualContainer = styled.div`
   line-height: 1.5;
   margin-right: 50px;
 `
-export const Star = styled.span`
-  font-size: 24px;
-  position: absolute;
-  top: 4px;
-  right: 14px;
-  cursor: pointer;
-  color: #0096ff;
-`
 
-export const PurchaseBtn = styled.div`
-  width: 120px;
-  position: absolute;
-  bottom: 4px;
-  right: 0;
-`
