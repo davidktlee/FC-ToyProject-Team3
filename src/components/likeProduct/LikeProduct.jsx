@@ -1,24 +1,31 @@
 import React, { useState } from 'react';
 import * as S from './LikeProductStyle';
-import { useWishListQuery } from '../../api/useApi';
+import { useWishListQuery, useGetUserDataQuery } from '../../api/useApi';
 import ProductItem from '../../common/productItem/ProductItem';
 import { useCookies } from 'react-cookie';
 
-function LikeProduct(props) {
-  const { data: whihList, isLoadding,isError} = useWishListQuery()
-  const [list, setList] = useState(whihList)
-  const [cookies, setCookie, removeCookie] = useCookies()
 
-  console.log(whihList)
+function LikeProduct() {
+  const [cookies] = useCookies()
+  const token = cookies.accessToken;
+  const { data: whihList, isLoadding,isError} = useWishListQuery(token)
+  const {data : username} = useGetUserDataQuery(token)
+  console.log(username)
 
   return (
     <>
-         {cookies.accessToken ? (
-          <S.InterestedItems>
-            OOO회원님의 관심 상품
-          </S.InterestedItems>
-         ) : null
+        <S.User>{username && <S.Username>{username.username}</S.Username>} 회원님 관심상품</S.User>
+      <S.ScrollBar>
+        {whihList &&
+          whihList.map((list) => {
+            return(
+              <div key={list.productId}>
+              <ProductItem name={list.name} loan={list.loan} logo={list.logo} productId={list.productId}/>
+              </div>
+            )
+          })
         }
+      </S.ScrollBar>
     </>
   )
 }
