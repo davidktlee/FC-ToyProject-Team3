@@ -85,4 +85,10 @@ export const ItemContainer = styled.div`
   height: 400px;
   overflow-y: scroll;
   text-align: center;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {  
+    display: none;
+  }
 `
