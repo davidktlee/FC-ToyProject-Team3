@@ -52,7 +52,6 @@ export const useApi = createApi({
         },
       }),
     }),
-
     getCart: builder.query({
       query: () => ({
         url: '/carts',
@@ -62,7 +61,6 @@ export const useApi = createApi({
         },
       }),
     }),
-
     WishList: builder.query({
       query: token => ({
         url: '/interests',
