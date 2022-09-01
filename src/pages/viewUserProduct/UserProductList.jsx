@@ -103,7 +103,7 @@ function AllProductList() {
         {gotProductLists
           ? gotProductLists.map(list => (
               <div key={list.productId}>
-                <ProductItem name={list.name} loan={list.loan} logo={list.logo} />
+                <ProductItem name={list.name} loan={list.loan} logo={list.logo} productId={list.productId} />
               </div>
             ))
           : null}

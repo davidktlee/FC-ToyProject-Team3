@@ -15,9 +15,15 @@ export const ManualText = styled.div`
   margin: 20px;
 `
 export const ItemContainer = styled.div`
-  margin: 20px 0 0 16px;
+  margin: 20px;
   height: 400px;
   overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {  
+    display: none;
+  }
 `
 export const LoginText = styled.div`
   text-align: center;
@@ -28,4 +34,8 @@ export const LoginBtn = styled.span`
 `
 export const Loader = styled.div`
   text-align: center;
+`
+
+export const InterestedItems = styled.div`
+  margin: 2px 50px 23px 20px;
 `

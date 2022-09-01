@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import backImg2 from '../../../../public/backImg2.jpg'
+import backImg2 from '../../../../public/maxresdefault.jpg'
 
 export const Container = styled.div`
   display: flex;
@@ -15,9 +15,10 @@ export const Title = styled.h1`
 `
 
 export const InputArea = styled.div`
-  width: 89%;
+  width: 100%;
   height: 350px;
   background-image: url('${backImg2}');
+  background-position: center;
   background-size: cover;
   border-radius: 10px;
   margin: 5%;
