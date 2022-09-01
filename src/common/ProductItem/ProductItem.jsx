@@ -15,9 +15,9 @@ function ProductItem({ name, loan, logo, productId }) {
   const [starStates, setStarStates] = useState(true)
   const [hoverState, setHoverState] = useState(false)
   const [hoverStates, setHoverStates] = useState(false)
-  const [postLikeProduct, setPostLikeProduct] = useState({data: { name, loan, logo, productId }})
-  const [likeProduct, setLikeProduct] = useWishListAddMutation()
-  const [deleteLikeProduct, setDeleteLikeProduct] = useWishListDeleteMutation()
+  const [postLikeProduct ] = useState({data: { name, loan, logo, productId }})
+  const [likeProduct] = useWishListAddMutation()
+  const [deleteLikeProduct] = useWishListDeleteMutation()
 
   const onClickStar = () => {
     setStarState(prev => !prev)
