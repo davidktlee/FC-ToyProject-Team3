@@ -57,28 +57,28 @@ export const useApi = createApi({
         url: '/interests',
         method: 'GET',
         headers: {
-          Authorization : `Bearer ${token}`,
-        }
-      })
+          Authorization: `Bearer ${token}`,
+        },
+      }),
     }),
     WishListAdd: builder.mutation({
-      query: ({data, productId, token}) => ({
-         url: `interests/${productId}`,
-         method: 'POST',
-         body: data,
-         headers: {
-          Authorization : `Bearer ${token}`,
-        }
+      query: ({ data, productId, token }) => ({
+        url: `interests/${productId}`,
+        method: 'POST',
+        body: data,
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       }),
     }),
     WishListDelete: builder.mutation({
-      query: ({ productId, token}) => ({ 
+      query: ({ productId, token }) => ({
         url: `interests/${productId}`,
         method: 'DELETE',
         headers: {
-          Authorization : `Bearer ${token}`,
-        }
-      })
+          Authorization: `Bearer ${token}`,
+        },
+      }),
     }),
   }),
 })
