@@ -1,5 +1,5 @@
 import React from 'react'
-import * as S from './NotFoundStyke'
+import * as S from './NotFoundStyle'
 function NotFound() {
   return (
     <>
