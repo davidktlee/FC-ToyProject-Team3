@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import * as S from './CartItemStyle'
 import { BsCartX } from 'react-icons/all'
 import {useGetCartQuery} from '../../../api/useApi'
 import { Cookies } from 'react-cookie'
@@ -8,16 +9,28 @@ function CartItem() {
   const cookies = new Cookies()
   const token = cookies.get('accessToken')
 
-  const {data: items} = useGetCartQuery(token);
+  const {data: carts} = useGetCartQuery(token);
  
 
   return (
     <>
-      {items && items.map((item) => (
+      {carts && carts.map((cart) => (
         <>
-          <p>{item.name}</p>
+          <S.Container>
+            <S.Logo>
+              <S.Img src={cart.logo}/>
+            </S.Logo>
+            <S.ProductInfo>
+              <div>{cart.name}</div>
+              <div>{cart.loan} 원</div>
+            </S.ProductInfo>
+            <S.Cancel>
+              <BsCartX />
+            </S.Cancel>
+          </S.Container>
         </>
       ))}
+      
     </>
 
     // <S.Container>

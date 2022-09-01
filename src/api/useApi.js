@@ -53,10 +53,9 @@ export const useApi = createApi({
       }),
     }),
     getCart: builder.query({
-      query: () => ({
+      query: (token) => ({
         url: '/carts',
         headers: {
-          // Authorization: `Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTY2MjAxOTI2NH0.x2qqd7Pzkb5oh6rK-2P2bKfaKENjs6PYvn_ylO2qTCQdDOm4zj7fUAl2W_VXXeV-_tmq5-VxwS6oRlv96PUYhQ`,
           Authorization: `Bearer ${token}`,
         },
       }),
