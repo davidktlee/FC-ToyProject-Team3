@@ -98,7 +98,7 @@ function SignUp() {
           )}
         </S.SelectMessage>
       </S.InputArea>
-      <div class="d-grid gap-2 col-6 mx-auto">
+      <div className="d-grid gap-2 col-6 mx-auto">
         <Button variant="outline-primary" size="lg" onClick={submitSignUp}>
           회원가입
         </Button>
