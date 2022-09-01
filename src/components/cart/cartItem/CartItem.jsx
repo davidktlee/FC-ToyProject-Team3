@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import * as S from './CartItemStyle'
 import { BsCartX } from 'react-icons/all'
-import {useGetCartQuery} from '../../../api/useApi'
+import {useGetCartQuery, useCancelCartQuery} from '../../../api/useApi'
 import { Cookies } from 'react-cookie'
 
 
@@ -30,23 +30,7 @@ function CartItem() {
           </S.Container>
         </>
       ))}
-      
     </>
-
-    // <S.Container>
-    //   <S.Logo>
-    //     <img src="" alt="" />
-    //   </S.Logo>
-
-    //   <S.ManualContainer>
-    //     <div>은행명</div>
-    //     <div>상품 금액</div>
-    //   </S.ManualContainer>
-
-    //   <S.CancelBtn onClick={cancelCart}>
-    //     <BsCartX />
-    //   </S.CancelBtn>
-    // </S.Container>
   )
 }
 
