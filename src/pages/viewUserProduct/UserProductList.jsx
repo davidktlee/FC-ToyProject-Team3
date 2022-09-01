@@ -111,12 +111,6 @@ function AllProductList() {
             </div>
           ))
         ) : null}
-        {/* // : searchedProductLists // ? searchedProductLists.map(list => ( //{' '}
-        <div key={list.productId}>
-          // <ProductItem name={list.name} loan={list.loan} logo={list.logo} />
-          //{' '}
-        </div>
-        // )) // : null} */}
       </S.ItemContainer>
     </S.Container>
   )
