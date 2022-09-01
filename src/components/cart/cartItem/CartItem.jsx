@@ -1,27 +1,39 @@
 import React, { useState } from 'react'
-import * as S from './CartItemStyle'
 import { BsCartX } from 'react-icons/all'
+import {useGetCartQuery} from '../../../api/useApi'
+import { Cookies } from 'react-cookie'
+
 
 function CartItem() {
-  const cancelCart = () => {
-    alert('장바구니에서 삭제되었습니다.');
-  }
+  const cookies = new Cookies()
+  const token = cookies.get('accessToken')
+
+  const {data: items} = useGetCartQuery(token);
+ 
 
   return (
-    <S.Container>
-      <S.Logo>
-        <img src="" alt="" />
-      </S.Logo>
+    <>
+      {items && items.map((item) => (
+        <>
+          <p>{item.name}</p>
+        </>
+      ))}
+    </>
 
-      <S.ManualContainer>
-        <div>은행명</div>
-        <div>상품 금액</div>
-      </S.ManualContainer>
+    // <S.Container>
+    //   <S.Logo>
+    //     <img src="" alt="" />
+    //   </S.Logo>
 
-      <S.CancelBtn onClick={cancelCart}>
-        <BsCartX />
-      </S.CancelBtn>
-    </S.Container>
+    //   <S.ManualContainer>
+    //     <div>은행명</div>
+    //     <div>상품 금액</div>
+    //   </S.ManualContainer>
+
+    //   <S.CancelBtn onClick={cancelCart}>
+    //     <BsCartX />
+    //   </S.CancelBtn>
+    // </S.Container>
   )
 }
 
