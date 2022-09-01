@@ -46,7 +46,7 @@ function Signin() {
         <S.Email name="email" onChange={inputChangeHandler} onKeyPress={onKeyPress} />
         <S.Password name="password" onChange={inputChangeHandler} onKeyPress={onKeyPress} />
       </S.InputArea>
-      <div class="d-grid gap-2 col-6 mx-auto">
+      <div className="d-grid gap-2 col-6 mx-auto">
         <Button variant="outline-primary" size="lg" onClick={submitSignIn}>
           로그인
         </Button>
