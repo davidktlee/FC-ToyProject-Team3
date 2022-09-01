@@ -1,9 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { useCookies, Cookies } from 'react-cookie'
 
-const cookies = new Cookies()
-const token = cookies.get('accessToken')
-
 export const useApi = createApi({
   reducerPath: 'useApi',
   baseQuery: fetchBaseQuery({
@@ -56,25 +53,31 @@ export const useApi = createApi({
       }),
     }),
     WishList: builder.query({
-      query: () => ({
+      query: token => ({
         url: '/interests',
         method: 'GET',
         headers: {
-          Authorization : `Bearer ${accessToken}`,
+          Authorization : `Bearer ${token}`,
         }
       })
     }),
     WishListAdd: builder.mutation({
-      query: ({data, productId}) => ({
+      query: ({data, productId, token}) => ({
          url: `interests/${productId}`,
          method: 'POST',
          body: data,
+         headers: {
+          Authorization : `Bearer ${token}`,
+        }
       }),
     }),
     WishListDelete: builder.mutation({
-      query: (productid) => ({ 
-        url: `interests/${productid}`,
+      query: ({ productId, token}) => ({ 
+        url: `interests/${productId}`,
         method: 'DELETE',
+        headers: {
+          Authorization : `Bearer ${token}`,
+        }
       })
     }),
   }),
