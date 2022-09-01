@@ -55,6 +55,14 @@ export const useApi = createApi({
         },
       }),
     }),
+    getCart: builder.query({
+      query: token => ({
+        url: '/carts',
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }),
+    }),
   }),
 })
 
@@ -65,4 +73,5 @@ export const {
   useGetUserProductsQuery,
   useGetSearchProductsMutation,
   useGetUserDataQuery,
+  useGetCartQuery,
 } = useApi
