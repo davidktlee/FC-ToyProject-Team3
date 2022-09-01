@@ -1,8 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { useCookies, Cookies } from 'react-cookie'
 
-const cookies = new Cookies()
-const token = cookies.get('accessToken')
 
 export const useApi = createApi({
   reducerPath: 'useApi',
