@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import * as S from './CartItemStyle'
 import { BsCartX } from 'react-icons/all'
-import {useGetCartQuery, useCancelCartQuery} from '../../../api/useApi'
+import {useGetCartQuery} from '../../../api/useApi'
 import { Cookies } from 'react-cookie'
 
 
@@ -30,6 +30,7 @@ function CartItem() {
           </S.Container>
         </>
       ))}
+      
     </>
   )
 }

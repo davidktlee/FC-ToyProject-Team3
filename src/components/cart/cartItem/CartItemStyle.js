@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Container = styled.div `
+export const Container = styled.div`
   width: 340px;
   height: 120px;
   display: flex;
@@ -10,7 +10,7 @@ export const Container = styled.div `
   border-radius: 10px;
   position: relative;
 `
-export const Logo = styled.div `
+export const Logo = styled.div`
   width: 60px;
   height: 60px;
   border: 1px solid;
@@ -23,7 +23,7 @@ export const Img = styled.img`
   width: 100%;
   height: 100%;
 `
-export const ProductInfo = styled.div `
+export const ProductInfo = styled.div`
   display: flex;
   flex-direction: column;
   flex-grow: 1;

@@ -60,14 +60,6 @@ export const useApi = createApi({
         },
       }),
     }),
-    cancelCart: builder.query({
-      query: ({productId, token}) => ({
-        url: `/carts/${productId}`,
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }),
-    }),
     WishList: builder.query({
       query: token => ({
         url: '/interests',
@@ -110,5 +102,4 @@ export const {
   useWishListDeleteMutation,
   useGetUserDataQuery,
   useGetCartQuery,
-  useCancelCartQuery,
 } = useApi
