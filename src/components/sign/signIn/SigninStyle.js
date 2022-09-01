@@ -15,7 +15,7 @@ export const Title = styled.h1`
 `
 
 export const InputArea = styled.div`
-  width: 100%;
+  width: 90%;
   height: 350px;
   background-image: url('${backImg2}');
   background-position: center;
