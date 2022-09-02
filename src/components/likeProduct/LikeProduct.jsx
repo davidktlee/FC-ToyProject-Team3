@@ -8,13 +8,12 @@ import { useCookies } from 'react-cookie';
 function LikeProduct() {
   const [cookies] = useCookies()
   const token = cookies.accessToken;
-  const { data: whihList, isLoadding,isError} = useWishListQuery(token)
+  const { data: whihList, isLoadding} = useWishListQuery(token)
   const {data : username} = useGetUserDataQuery(token)
-  console.log(username)
 
   return (
     <>
-        <S.User>{username && <S.Username>{username.username}</S.Username>} 회원님 관심상품</S.User>
+      <S.User>{username && <S.Username>{username.username}</S.Username>} 회원님 관심상품</S.User>
       <S.ScrollBar>
         {whihList &&
           whihList.map((list) => {
