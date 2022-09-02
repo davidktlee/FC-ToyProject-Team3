@@ -10,31 +10,28 @@ function CartItem() {
   const token = cookies.get('accessToken')
 
   const {data: carts} = useGetCartQuery(token)
-  
   const [cancelCart] = useCancelCartMutation()
   
-  
- 
-
   return (
     <>
-      {carts && carts.map((cart) => (
-        <>
-          <S.Container>
-            <S.Logo>
-              <S.Img src={cart.logo}/>
-            </S.Logo>
-            <S.ProductInfo>
-              <div>{cart.name}</div>
-              <div>{cart.loan} 원</div>
-            </S.ProductInfo>
-            <S.Cancel>
-              <BsCartX onClick={() => cancelCart({token, productId: cart.productId})}/>
-            </S.Cancel>
-          </S.Container>
-        </>
-      ))}
-      
+      <S.ScrollBar>
+        {carts && carts.map((cart) => (
+          <>
+            <S.Container>
+              <S.Logo>
+                <S.Img src={cart.logo}/>
+              </S.Logo>
+              <S.ProductInfo>
+                <div>{cart.name}</div>
+                <div>{cart.loan} 원</div>
+              </S.ProductInfo>
+              <S.Cancel>
+                <BsCartX onClick={() => cancelCart({token, productId: cart.productId})}/>
+              </S.Cancel>
+            </S.Container>
+          </>
+        ))}
+      </S.ScrollBar>
     </>
   )
 }

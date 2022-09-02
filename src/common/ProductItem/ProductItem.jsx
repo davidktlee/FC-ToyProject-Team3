@@ -33,6 +33,15 @@ function ProductItem({ name, loan, logo, productId }) {
     const addComma = loan.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
     setCommaLoan(addComma)
   }
+  const submitAddCart = async () => {
+    const res = await addCart({token, productId})
+    
+    if (res.data) {
+      alert('장바구니에 담겼습니다!')
+    } else {
+      alert('이미 담긴 상품입니다!')
+    }
+  }
 
   useEffect(() => {
     toComma()
@@ -54,7 +63,7 @@ function ProductItem({ name, loan, logo, productId }) {
         }}>{starState ? <AiFillStar /> : <AiOutlineStar />}</S.Star>
         {hoverState ? (
           <S.PurchaseBtn>
-            <Button variant="outline-primary" size="sm" onClick={() => addCart({token, productId: productId})}>
+            <Button variant="outline-primary" size="sm" onClick={submitAddCart}>
               장바구니 담기
             </Button>{' '}
           </S.PurchaseBtn>
@@ -77,7 +86,7 @@ function ProductItem({ name, loan, logo, productId }) {
             </S.Star>
             {hoverStates ? (
               <S.PurchaseBtn>
-                <Button variant="outline-primary" size="sm" onClick={() => addCart({token, productId: productId})}>
+                <Button variant="outline-primary" size="sm" onClick={submitAddCart}>
                   장바구니 담기
                 </Button>{' '}
               </S.PurchaseBtn>
