@@ -25,7 +25,7 @@ function Header() {
               <S.LoginTextContainer>
                 <S.Login
                   onClick={() => {
-                    navigate('/')
+                    navigate('/cart')
                   }}
                 >
                   장바구니
