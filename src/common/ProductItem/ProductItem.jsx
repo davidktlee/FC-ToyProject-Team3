@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import * as S from './ProductItemStyle';
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
-import { useWishListAddMutation, useWishListDeleteMutation } from '../../api/useApi';
+import { useWishListAddMutation, useWishListDeleteMutation, useAddCartMutation } from '../../api/useApi';
 import Button from 'react-bootstrap/Button';
 import { useCookies } from 'react-cookie'
 
@@ -18,6 +18,7 @@ function ProductItem({ name, loan, logo, productId }) {
   const [postLikeProduct ] = useState({data: { name, loan, logo, productId }})
   const [likeProduct] = useWishListAddMutation()
   const [deleteLikeProduct] = useWishListDeleteMutation()
+  const [addCart] = useAddCartMutation()
 
   const onClickStar = () => {
     setStarState(prev => !prev)
@@ -53,7 +54,7 @@ function ProductItem({ name, loan, logo, productId }) {
         }}>{starState ? <AiFillStar /> : <AiOutlineStar />}</S.Star>
         {hoverState ? (
           <S.PurchaseBtn>
-            <Button variant="outline-primary" size="sm">
+            <Button variant="outline-primary" size="sm" onClick={() => addCart({token, productId: productId})}>
               장바구니 담기
             </Button>{' '}
           </S.PurchaseBtn>
@@ -76,7 +77,7 @@ function ProductItem({ name, loan, logo, productId }) {
             </S.Star>
             {hoverStates ? (
               <S.PurchaseBtn>
-                <Button variant="outline-primary" size="sm">
+                <Button variant="outline-primary" size="sm" onClick={() => addCart({token, productId: productId})}>
                   장바구니 담기
                 </Button>{' '}
               </S.PurchaseBtn>
