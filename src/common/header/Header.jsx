@@ -1,8 +1,8 @@
-import React from 'react'
-import * as S from './HeaderStyle'
-import { AiFillShopping } from 'react-icons/ai'
-import { useNavigate } from 'react-router-dom'
-import { useCookies } from 'react-cookie'
+import React from 'react';
+import * as S from './HeaderStyle';
+import { AiFillShopping } from 'react-icons/ai';
+import { useNavigate } from 'react-router-dom';
+import { useCookies } from 'react-cookie';
 
 function Header() {
   const navigate = useNavigate()
@@ -19,11 +19,13 @@ function Header() {
         <S.Header>
           <S.Container>
             <S.Flex>
-              <S.Img src="https://cdn.sisamagazine.co.kr/news/photo/202109/401832_401982_133.png" alt="" />
+              <S.Img onClick={() => {
+                navigate('/')
+            }} src="https://cdn.sisamagazine.co.kr/news/photo/202109/401832_401982_133.png" alt="" />
               <S.LoginTextContainer>
                 <S.Login
                   onClick={() => {
-                    navigate('/')
+                    navigate('/cart')
                   }}
                 >
                   장바구니
@@ -44,7 +46,9 @@ function Header() {
         <S.Header>
           <S.Container>
             <S.Flex>
-              <S.Img src="https://cdn.sisamagazine.co.kr/news/photo/202109/401832_401982_133.png" alt="" />
+              <S.Img onClick={() => {
+                navigate('/')
+            }}src="https://cdn.sisamagazine.co.kr/news/photo/202109/401832_401982_133.png" alt="" />
               <S.LoginTextContainer>
                 <S.Login
                   onClick={() => {

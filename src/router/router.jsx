@@ -6,6 +6,8 @@ import AllProduceList from '../pages/viewUserProduct/UserProductList'
 import ProductList from '../common/productlist/ProductList'
 import SignIn from '../components/sign/signIn/SignIn'
 import SignUp from '../components/sign/signUp/SignUp'
+import ViewCart from '../pages/cart/ViewCart'
+import NotFound from '../common/notFound/NotFound'
 
 function Router() {
   return (
@@ -16,6 +18,8 @@ function Router() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/likeproduct" element={<LikeProduct />} />
         <Route path="/allproductlist" element={<AllProduceList />} />
+        <Route path="/cart" element={<ViewCart />} />
+        <Route path="/*" element={<NotFound />} />
       </Route>
     </Routes>
   )

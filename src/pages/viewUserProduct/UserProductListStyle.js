@@ -71,7 +71,7 @@ export const SearchIcon = styled.span`
   }
 `
 export const Sort = styled.select`
-  width: 110px;
+  width: 100px;
   height: 24px;
   margin-left: 42px;
   padding-left: 4px;
@@ -85,4 +85,10 @@ export const ItemContainer = styled.div`
   height: 400px;
   overflow-y: scroll;
   text-align: center;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {  
+    display: none;
+  }
 `

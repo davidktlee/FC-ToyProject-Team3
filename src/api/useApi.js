@@ -1,11 +1,9 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { useCookies, Cookies } from 'react-cookie'
 
-const cookies = new Cookies()
-const token = cookies.get('accessToken')
-
 export const useApi = createApi({
   reducerPath: 'useApi',
+  tagTypes: ['Carts'],
   baseQuery: fetchBaseQuery({
     baseUrl: import.meta.env.VITE_REACT_APP_API_URL,
   }),
@@ -55,6 +53,63 @@ export const useApi = createApi({
         },
       }),
     }),
+    getCart: builder.query({
+      query: (token) => ({
+        url: '/carts',
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }),
+      providesTags: ['Carts']
+    }),
+    addCart: builder.mutation({
+      query: ({token, productId}) => ({
+        url: `/carts/${productId}`,
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }),
+      invalidatesTags: ['Carts']
+    }),
+    cancelCart: builder.mutation({
+      query: ({token, productId}) => ({
+        url: `/carts/${productId}`,
+        method: 'DELETE',
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }),
+      invalidatesTags: ['Carts']
+    }),
+    WishList: builder.query({
+      query: token => ({
+        url: '/interests',
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }),
+    }),
+    WishListAdd: builder.mutation({
+      query: ({ data, productId, token }) => ({
+        url: `interests/${productId}`,
+        method: 'POST',
+        body: data,
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }),
+    }),
+    WishListDelete: builder.mutation({
+      query: ({ productId, token }) => ({
+        url: `interests/${productId}`,
+        method: 'DELETE',
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }),
+    }),
   }),
 })
 
@@ -64,5 +119,11 @@ export const {
   useGetProductsQuery,
   useGetUserProductsQuery,
   useGetSearchProductsMutation,
+  useWishListQuery,
+  useWishListAddMutation,
+  useWishListDeleteMutation,
   useGetUserDataQuery,
+  useGetCartQuery,
+  useAddCartMutation,
+  useCancelCartMutation,
 } = useApi

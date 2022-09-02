@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import * as S from './SigninStyle'
 import Button from 'react-bootstrap/Button'
 import { useSignInMutation } from '../../../api/useApi'
@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom'
 
 function Signin() {
   const [userInput, setUserInput] = useState({ email: '', password: '' })
+  const inputRef = useRef([])
   const [signIn] = useSignInMutation()
   const [cookies, setCookie, removeCookie] = useCookies()
   const navigate = useNavigate()
@@ -25,8 +26,10 @@ function Signin() {
   const submitSignIn = async () => {
     if (userInput.email.trim() == '') {
       alert('이메일을 입력해주세요')
+      inputRef.current[0].focus()
     } else if (userInput.password.trim() == '') {
       alert('비밀번호를 입력해주세요')
+      inputRef.current[1].focus()
     } else {
       const response = await signIn({
         data: userInput,
@@ -43,10 +46,20 @@ function Signin() {
     <S.Container>
       <S.Title>KFB-금융 대출 로그인</S.Title>
       <S.InputArea>
-        <S.Email name="email" onChange={inputChangeHandler} onKeyPress={onKeyPress} />
-        <S.Password name="password" onChange={inputChangeHandler} onKeyPress={onKeyPress} />
+        <S.Email
+          ref={el => (inputRef.current[0] = el)}
+          name="email"
+          onChange={inputChangeHandler}
+          onKeyPress={onKeyPress}
+        />
+        <S.Password
+          ref={el => (inputRef.current[1] = el)}
+          name="password"
+          onChange={inputChangeHandler}
+          onKeyPress={onKeyPress}
+        />
       </S.InputArea>
-      <div class="d-grid gap-2 col-6 mx-auto">
+      <div className="d-grid gap-2 col-6 mx-auto">
         <Button variant="outline-primary" size="lg" onClick={submitSignIn}>
           로그인
         </Button>
