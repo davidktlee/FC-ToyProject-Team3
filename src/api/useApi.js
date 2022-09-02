@@ -59,6 +59,7 @@ export const useApi = createApi({
           Authorization: `Bearer ${token}`,
         },
       }),
+      providesTags: [{ type: 'Carts', id: 'LIST'}]
     }),
     cancelCart: builder.mutation({
       query: ({token, productId}) => ({
@@ -68,6 +69,7 @@ export const useApi = createApi({
           Authorization: `Bearer ${token}`,
         },
       }),
+      invalidatesTags: (result) => result ? [{type: 'Carts', id: 'LIST'}] : []
     }),
     WishList: builder.query({
       query: token => ({
