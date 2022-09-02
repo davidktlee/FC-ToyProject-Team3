@@ -1,11 +1,11 @@
-import React from 'react';
-import * as S from './HeaderStyle';
-import { useNavigate } from 'react-router-dom';
-import { useCookies } from 'react-cookie';
+import React from 'react'
+import * as S from './HeaderStyle'
+import { useNavigate } from 'react-router-dom'
+import { useCookies } from 'react-cookie'
 
 function Header() {
   const navigate = useNavigate()
-  const [cookies, removeCookie] = useCookies()
+  const [cookies, setCookie, removeCookie] = useCookies()
 
   const signOut = () => {
     removeCookie('accessToken')
@@ -18,9 +18,13 @@ function Header() {
         <S.Header>
           <S.Container>
             <S.Flex>
-              <S.Img onClick={() => {
-                navigate('/')
-            }} src="https://cdn.sisamagazine.co.kr/news/photo/202109/401832_401982_133.png" alt="" />
+              <S.Img
+                onClick={() => {
+                  navigate('/')
+                }}
+                src="https://cdn.sisamagazine.co.kr/news/photo/202109/401832_401982_133.png"
+                alt=""
+              />
               <S.LoginTextContainer>
                 <S.Login
                   onClick={() => {
@@ -45,9 +49,13 @@ function Header() {
         <S.Header>
           <S.Container>
             <S.Flex>
-              <S.Img onClick={() => {
-                navigate('/')
-            }}src="https://cdn.sisamagazine.co.kr/news/photo/202109/401832_401982_133.png" alt="" />
+              <S.Img
+                onClick={() => {
+                  navigate('/')
+                }}
+                src="https://cdn.sisamagazine.co.kr/news/photo/202109/401832_401982_133.png"
+                alt=""
+              />
               <S.LoginTextContainer>
                 <S.Login
                   onClick={() => {
