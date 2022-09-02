@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useGetProductsQuery, useGetUserDataQuery } from '../../api/useApi'
 import TotalAmount from '../../components/totalamount/TotalAmount'
-import ProductItem from '../productItem/CanNotProductItem'
+import ProductItem from '../ProductItem/CanNotProductItem'
 import * as S from './ProductListStyle'
 import { Cookies } from 'react-cookie'
 import { useNavigate } from 'react-router'
