@@ -3,7 +3,7 @@ import { useCookies, Cookies } from 'react-cookie'
 
 export const useApi = createApi({
   reducerPath: 'useApi',
-  tagTypes: ['Carts'],
+  tagTypes: ['Carts', 'likeproduct'],
   baseQuery: fetchBaseQuery({
     baseUrl: import.meta.env.VITE_REACT_APP_API_URL,
   }),
@@ -90,6 +90,7 @@ export const useApi = createApi({
           Authorization: `Bearer ${token}`,
         },
       }),
+      providesTags: [{type: 'likeproduct'}]
     }),
     WishListAdd: builder.mutation({
       query: ({ data, productId, token }) => ({
@@ -100,6 +101,7 @@ export const useApi = createApi({
           Authorization: `Bearer ${token}`,
         },
       }),
+      invalidatesTags: ['likeproduct']
     }),
     WishListDelete: builder.mutation({
       query: ({ productId, token }) => ({
@@ -109,6 +111,7 @@ export const useApi = createApi({
           Authorization: `Bearer ${token}`,
         },
       }),
+      invalidatesTags: ['likeproduct']
     }),
   }),
 })
