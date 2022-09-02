@@ -1,12 +1,11 @@
-import React, { memo, useCallback, useState } from 'react'
+import React, { useState } from 'react'
 import * as S from './UserProductListStyle'
 import { BiSearchAlt } from 'react-icons/bi'
 import ProductItem from '../../common/productItem/ProductItem'
 import { useEffect } from 'react'
-import { useGetProductsQuery, useGetSearchProductsMutation, useGetUserProductsQuery } from '../../api/useApi'
+import { useGetSearchProductsMutation, useGetUserProductsQuery } from '../../api/useApi'
 import { useCookies } from 'react-cookie'
 import Loader from '../../common/loader/Loader'
-import { useNavigate } from 'react-router'
 
 function AllProductList() {
   const [cookies] = useCookies()

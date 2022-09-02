@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useGetProductsQuery, useGetUserDataQuery, useGetUserProductsQuery } from '../../api/useApi'
+import { useGetProductsQuery, useGetUserDataQuery } from '../../api/useApi'
 import TotalAmount from '../../components/totalamount/TotalAmount'
 import ProductItem from '../productItem/CanNotProductItem'
 import * as S from './ProductListStyle'
