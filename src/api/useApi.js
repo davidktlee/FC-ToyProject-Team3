@@ -42,7 +42,6 @@ export const useApi = createApi({
           Authorization: `Bearer ${token}`,
         },
       }),
-      transformResponse: res => res,
     }),
     getUserData: builder.query({
       query: token => ({
