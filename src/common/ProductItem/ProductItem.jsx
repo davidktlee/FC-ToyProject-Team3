@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import * as S from './ProductItemStyle';
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
-import { useWishListAddMutation, useWishListDeleteMutation, useAddCartQuery } from '../../api/useApi';
+import { useWishListAddMutation, useWishListDeleteMutation, useAddCartMutation } from '../../api/useApi';
 import Button from 'react-bootstrap/Button';
 import { useCookies } from 'react-cookie'
 
@@ -18,7 +18,7 @@ function ProductItem({ name, loan, logo, productId }) {
   const [postLikeProduct ] = useState({data: { name, loan, logo, productId }})
   const [likeProduct] = useWishListAddMutation()
   const [deleteLikeProduct] = useWishListDeleteMutation()
-  const [addCart] = useAddCartQuery()
+  const [addCart] = useAddCartMutation()
 
   const onClickStar = () => {
     setStarState(prev => !prev)
