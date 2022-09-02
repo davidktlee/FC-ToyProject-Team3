@@ -60,6 +60,14 @@ export const useApi = createApi({
         },
       }),
     }),
+    cancelCart: builder.mutation({
+      query: (token) => ({
+        url: '/carts/1',
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }),
+    }),
     WishList: builder.query({
       query: token => ({
         url: '/interests',
@@ -102,4 +110,5 @@ export const {
   useWishListDeleteMutation,
   useGetUserDataQuery,
   useGetCartQuery,
+  useCancelCartMutation,
 } = useApi

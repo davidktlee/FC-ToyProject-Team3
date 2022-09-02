@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import * as S from './CartItemStyle'
 import { BsCartX } from 'react-icons/all'
-import {useGetCartQuery} from '../../../api/useApi'
+import {useGetCartQuery, useCancelCartMutation} from '../../../api/useApi'
 import { Cookies } from 'react-cookie'
 
 
@@ -10,6 +10,8 @@ function CartItem() {
   const token = cookies.get('accessToken')
 
   const {data: carts} = useGetCartQuery(token);
+
+  const test = useCancelCartMutation();
  
 
   return (
@@ -25,7 +27,7 @@ function CartItem() {
               <div>{cart.loan} 원</div>
             </S.ProductInfo>
             <S.Cancel>
-              <BsCartX />
+              <BsCartX onClick={test}/>
             </S.Cancel>
           </S.Container>
         </>
