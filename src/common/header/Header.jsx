@@ -1,12 +1,11 @@
 import React from 'react';
 import * as S from './HeaderStyle';
-import { AiFillShopping } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 
 function Header() {
   const navigate = useNavigate()
-  const [cookies, setCookie, removeCookie] = useCookies()
+  const [cookies, removeCookie] = useCookies()
 
   const signOut = () => {
     removeCookie('accessToken')
