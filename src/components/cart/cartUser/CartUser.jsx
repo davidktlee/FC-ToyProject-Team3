@@ -11,8 +11,7 @@ function CartUser() {
   return (
     <>
       <S.User>
-        {userName && <S.Username>{userName.username}</S.Username>} 
-        회원님 장바구니
+        {userName && <S.Username>{userName.username}</S.Username>} 회원님 장바구니
       </S.User>
     </>
   )
