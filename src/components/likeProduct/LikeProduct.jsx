@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import * as S from './LikeProductStyle'
 import { useWishListQuery, useGetUserDataQuery } from '../../api/useApi'
-import ProductItem from '../../common/productItem/ProductItem'
+import ProductItem from '../../common/ProductItem/ProductItem'
 import { useCookies } from 'react-cookie'
 
 function LikeProduct() {
