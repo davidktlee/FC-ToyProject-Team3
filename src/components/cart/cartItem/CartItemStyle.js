@@ -39,3 +39,14 @@ export const Cancel = styled.span`
   cursor: pointer;
   color: #ff5252;
 `
+export const ScrollBar = styled.div `
+  margin: 20px 0 0 16px;
+  height: 72vh;
+  overflow-y: scroll;
+  text-align: center;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {  
+    display: none;
+  }
+`

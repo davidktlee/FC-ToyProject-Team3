@@ -10,9 +10,10 @@ function CartUser() {
 
   return (
     <>
-      <S.CartUserInfo>
-        {userName.username} 회원님의 <S.ColoredText>장바구니</S.ColoredText>
-      </S.CartUserInfo>
+      <S.User>
+        {userName && <S.Username>{userName.username}</S.Username>} 
+        회원님 장바구니
+      </S.User>
     </>
   )
 }

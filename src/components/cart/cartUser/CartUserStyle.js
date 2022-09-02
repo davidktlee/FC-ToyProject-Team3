@@ -1,9 +1,11 @@
 import styled from "styled-components";
 
-export const CartUserInfo = styled.div`
-  margin: 20px;
+export const User = styled.div`
+  width: 340px;
+  margin: 0 auto;
 `
-export const ColoredText = styled.span `
+export const Username = styled.span`
+  font-weight: 900;
   color: #0096ff;
-  font-weight: bold;
+  font-size: 1.2rem;
 `
