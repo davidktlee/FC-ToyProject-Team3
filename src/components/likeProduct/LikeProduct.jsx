@@ -10,6 +10,7 @@ function LikeProduct() {
   const token = cookies.accessToken;
   const { data: whihList, isLoadding} = useWishListQuery(token)
   const {data : username} = useGetUserDataQuery(token)
+  if (isLoadding) {return <div>로딩중...</div>}
 
   return (
     <>
