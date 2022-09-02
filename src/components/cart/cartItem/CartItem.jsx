@@ -9,10 +9,11 @@ function CartItem() {
   const cookies = new Cookies()
   const token = cookies.get('accessToken')
 
-  const {data: carts} = useGetCartQuery(token);
-  const cancel = (productId) => {
-    useCancelCartMutation(token, productId);
-  }
+  const {data: carts} = useGetCartQuery(token)
+  
+  const [cancelCart] = useCancelCartMutation()
+  
+  
  
 
   return (
@@ -28,7 +29,7 @@ function CartItem() {
               <div>{cart.loan} 원</div>
             </S.ProductInfo>
             <S.Cancel>
-              <BsCartX onClick={()=>cancel(cart.productId)}/>
+              <BsCartX onClick={() => cancelCart({token, productId: cart.productId})}/>
             </S.Cancel>
           </S.Container>
         </>
