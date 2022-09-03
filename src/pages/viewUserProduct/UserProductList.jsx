@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import * as S from './UserProductListStyle'
 import { BiSearchAlt } from 'react-icons/bi'
-import ProductItem from '../../common/productItem/ProductItem'
+import ProductItem from '../../common/ProductItem/ProductItem'
 import { useEffect } from 'react'
 import { useGetSearchProductsMutation, useGetUserProductsQuery } from '../../api/useApi'
 import { useCookies } from 'react-cookie'
