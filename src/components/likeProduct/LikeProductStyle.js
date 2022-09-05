@@ -73,3 +73,10 @@ export const ScrollBar = styled.div `
     display: none;
   }
 `
+
+export const Title = styled.h1`
+  text-align: center;
+  font-size: 30px;
+  color: #0096ff;
+  margin-bottom: 23px;
+`
