@@ -80,6 +80,16 @@ export const useApi = createApi({
       }),
       invalidatesTags: ['Carts']
     }),
+    cancelAllCart: builder.mutation({
+      query: (token) => ({
+        url: '/carts',
+        method: 'DELETE',
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }),
+      invalidatesTags: ['Carts']
+    }),
     WishList: builder.query({
       query: token => ({
         url: '/interests',
@@ -89,6 +99,16 @@ export const useApi = createApi({
         },
       }),
       providesTags: [{type: 'likeproduct'}]
+    }),
+    WishListAllDelete: builder.mutation({
+      query: token => ({
+        url: '/interests',
+        method: 'DELETE',
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }),
+      invalidatesTags: ['likeproduct']
     }),
     WishListAdd: builder.mutation({
       query: ({ data, productId, token }) => ({
@@ -121,10 +141,12 @@ export const {
   useGetUserProductsQuery,
   useGetSearchProductsMutation,
   useWishListQuery,
+  useWishListAllDeleteMutation,
   useWishListAddMutation,
   useWishListDeleteMutation,
   useGetUserDataQuery,
   useGetCartQuery,
   useAddCartMutation,
   useCancelCartMutation,
+  useCancelAllCartMutation,
 } = useApi
