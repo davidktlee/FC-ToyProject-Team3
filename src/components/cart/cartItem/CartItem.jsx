@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import * as S from './CartItemStyle'
 import { BsCartX } from 'react-icons/all'
-import {useGetCartQuery, useCancelCartMutation} from '../../../api/useApi'
+import {useGetCartQuery, useCancelCartMutation, useCancelAllCartMutation} from '../../../api/useApi'
 import { Cookies } from 'react-cookie'
 
 
@@ -11,10 +11,12 @@ function CartItem() {
 
   const {data: carts} = useGetCartQuery(token)
   const [cancelCart] = useCancelCartMutation()
+  const [cancelAllCart] = useCancelAllCartMutation()
   
   return (
     <>
       <S.ScrollBar>
+        <button onClick={() => {cancelAllCart(token)}}>전체삭제</button>
         {carts && carts.map((cart) => (
           <>
             <S.Container>
