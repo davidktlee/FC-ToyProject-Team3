@@ -31,7 +31,7 @@ function LikeProduct() {
                 variant="outline-primary"
                 size="sm"
                 onClick={() => {
-                  cancelAllCart(token)
+                  allDeleteList(token)
                 }}
               >
                 전체삭제
