@@ -4,7 +4,7 @@ import * as S from './ProductItemStyle';
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import { useWishListAddMutation, useWishListDeleteMutation, useAddCartMutation } from '../../api/useApi';
 import Button from 'react-bootstrap/Button';
-import { useCookies } from 'react-cookie'
+import { useCookies } from 'react-cookie';
 
 function ProductItem({ name, loan, logo, productId }) {
   const location = useLocation()
@@ -19,6 +19,7 @@ function ProductItem({ name, loan, logo, productId }) {
   const [likeProduct] = useWishListAddMutation()
   const [deleteLikeProduct] = useWishListDeleteMutation()
   const [addCart] = useAddCartMutation()
+  
 
   const onClickStar = () => {
     setStarState(prev => !prev)
@@ -32,7 +33,6 @@ function ProductItem({ name, loan, logo, productId }) {
     const addComma = loan.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
     setCommaLoan(addComma)
   }
-
   const submitAddCart = async () => {
     const res = await addCart({token, productId})
     
@@ -42,8 +42,6 @@ function ProductItem({ name, loan, logo, productId }) {
       alert('이미 담긴 상품입니다!')
     }
   }
-  
-
 
   useEffect(() => {
     toComma()
