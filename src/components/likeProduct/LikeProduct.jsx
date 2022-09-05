@@ -3,6 +3,7 @@ import * as S from './LikeProductStyle'
 import { useWishListQuery, useGetUserDataQuery, useWishListAllDeleteMutation } from '../../api/useApi'
 import ProductItem from '../../common/ProductItem/ProductItem'
 import { useCookies } from 'react-cookie'
+import Button from 'react-bootstrap/Button'
 
 function LikeProduct() {
   const [cookies] = useCookies()
@@ -23,11 +24,19 @@ function LikeProduct() {
         </S.ScrollBar>
       ) : (
         <>
-          <S.User>
-            {username && <S.Username>{username.username}</S.Username>} 회원님 관심상품
-          </S.User>
+          <S.User>{username && <S.Username>{username.username}</S.Username>} 회원님 관심상품</S.User>
           <S.ScrollBar>
-            <button onClick={() => {allDeleteList(token)}}>전체삭제</button>
+            <S.deleteBtnContainer>
+              <Button
+                variant="outline-primary"
+                size="sm"
+                onClick={() => {
+                  cancelAllCart(token)
+                }}
+              >
+                전체삭제
+              </Button>
+            </S.deleteBtnContainer>
             {whihList &&
               whihList.map(list => {
                 return (

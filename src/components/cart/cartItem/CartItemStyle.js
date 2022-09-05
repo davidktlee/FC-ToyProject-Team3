@@ -39,14 +39,19 @@ export const Cancel = styled.span`
   cursor: pointer;
   color: #ff5252;
 `
-export const ScrollBar = styled.div `
+export const ScrollBar = styled.div`
   margin: 20px 0 0 16px;
   height: 72vh;
   overflow-y: scroll;
   text-align: center;
   -ms-overflow-style: none;
   scrollbar-width: none;
-  &::-webkit-scrollbar {  
+  &::-webkit-scrollbar {
     display: none;
   }
+`
+export const deleteBtnContainer = styled.div`
+  width: 370px;
+  display: flex;
+  justify-content: end;
 `

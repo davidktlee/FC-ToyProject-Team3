@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Container = styled.div`
   width: 340px;
@@ -61,7 +61,7 @@ export const Username = styled.span`
   font-size: 1.2rem;
 `
 
-export const ScrollBar = styled.div `
+export const ScrollBar = styled.div`
   margin: 20px 0 0 16px;
   height: 72vh;
   overflow-y: scroll;
@@ -69,7 +69,7 @@ export const ScrollBar = styled.div `
   -ms-overflow-style: none;
   scrollbar-width: none;
 
-  &::-webkit-scrollbar {  
+  &::-webkit-scrollbar {
     display: none;
   }
 `
@@ -79,4 +79,9 @@ export const Title = styled.h1`
   font-size: 30px;
   color: #0096ff;
   margin-bottom: 23px;
+`
+export const deleteBtnContainer = styled.div`
+  width: 370px;
+  display: flex;
+  justify-content: end;
 `
